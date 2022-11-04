@@ -1,0 +1,604 @@
+body {
+  background-color: rgb(20, 20, 20);
+  margin: 0px;
+}
+
+#menu-items {
+  margin-top: clamp(4rem, 30vh, 48rem);
+  margin-left: clamp(4rem, 30vw, 48rem);
+  position: relative;
+  z-index: 2;
+}
+
+.menu-item {
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-family: 'Ibarra Real Nova', serif;
+  font-size: clamp(1rem, 2vw, 2rem);
+  letter-spacing: 0.5vmin;
+  padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
+  transition: opacity 400ms ease;
+  scroll-behavior: smooth;
+}
+#menu-items:hover > .menu-item {
+  opacity: 0.3;
+}
+#menu-items:hover > .menu-item:hover {
+  opacity: 1;
+}
+.menu-item:hover {
+  color: #45f3ff;
+}
+
+
+/*Background Pattern*/
+#menu-background-pattern {
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.1) 9%,
+    transparent 9%
+  );
+  background-position: 0% 0%;
+  background-size: 9vmin 9vmin;
+  height: 340vh;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  transition: opacity 800ms ease,
+    background-size 800ms ease,
+    background-position 800ms ease;
+  width: 100vw;
+  z-index: 1;
+}
+#menu-items:hover ~ #menu-background-pattern {
+  background-size: 7vmin 7vmin;
+  opacity: 0.3;
+}
+
+/*Background Image*/
+#menu-background-image {
+  background-image: url("logobackground.jpg");
+  background-attachment: fixed;
+  background-size: 110vmax;
+  height: 350%;
+  left: 0px;
+  opacity: 0.15;
+  position: absolute;
+  top: 0px;
+  transition: opacity 800ms ease,
+    background-size 800ms ease,
+    background-position 800ms ease;
+  width: 100%;
+  z-index: 0;
+}
+#menu-items:hover ~ #menu-background-image {
+  background-size: 150vmax;
+  opacity: 0.1;
+}
+
+/*MENU BACKGROUND PATTERN*/
+#menu[data-active-index="0"] > #menu-background-pattern {
+  background-position: 0% 3%;
+}
+
+#menu[data-active-index="1"] > #menu-background-pattern {
+  background-position: 0% 6%;
+}
+
+#menu[data-active-index="2"] > #menu-background-pattern {
+  background-position: 0% 9%;
+}
+
+#menu[data-active-index="3"] > #menu-background-pattern {
+  background-position: 0% 12%;
+}
+
+#menu[data-active-index="4"] > #menu-background-pattern {
+  background-position: 0% 15%;
+}
+
+#menu[data-active-index="5"] > #menu-background-pattern {
+  background-position: 0% 18%;
+}
+
+#menu[data-active-index="6"] > #menu-background-pattern {
+  background-position: 0% 21%;
+}
+
+#menu[data-active-index="7"] > #menu-background-pattern {
+  background-position: 0% 24%;
+}
+
+#menu[data-active-index="8"] > #menu-background-pattern {
+  background-position: 0% 27%;
+}
+
+#menu[data-active-index="9"] > #menu-background-pattern {
+  background-position: 0% 30%;
+}
+
+#menu[data-active-index="10"] > #menu-background-pattern {
+  background-position: 0% 33%;
+}
+
+#menu[data-active-index="11"] > #menu-background-pattern {
+  background-position: 0% 36%;
+}
+
+#menu[data-active-index="12"] > #menu-background-pattern {
+  background-position: 0% 39%;
+}
+
+#menu[data-active-index="13"] > #menu-background-pattern {
+  background-position: 0% 42%;
+}
+
+#menu[data-active-index="14"] > #menu-background-pattern {
+  background-position: 0% 45%;
+}
+
+#menu[data-active-index="15"] > #menu-background-pattern {
+  background-position: 0% 48%;
+}
+
+#menu[data-active-index="16"] > #menu-background-pattern {
+  background-position: 0% 51%;
+}
+
+#menu[data-active-index="17"] > #menu-background-pattern {
+  background-position: 0% 54%;
+}
+
+#menu[data-active-index="18"] > #menu-background-pattern {
+  background-position: 0% 57%;
+}
+
+#menu[data-active-index="19"] > #menu-background-pattern {
+  background-position: 0% 60%;
+}
+
+#menu[data-active-index="20"] > #menu-background-pattern {
+  background-position: 0% 63%;
+}
+
+#menu[data-active-index="21"] > #menu-background-pattern {
+  background-position: 0% 66%;
+}
+
+#menu[data-active-index="22"] > #menu-background-pattern {
+  background-position: 0% 69%;
+}
+
+#menu[data-active-index="23"] > #menu-background-pattern {
+  background-position: 0% 72%;
+}
+
+#menu[data-active-index="24"] > #menu-background-pattern {
+  background-position: 0% 75%;
+}
+
+#menu[data-active-index="25"] > #menu-background-pattern {
+  background-position: 0% 78%;
+}
+
+#menu[data-active-index="26"] > #menu-background-pattern {
+  background-position: 0% 81%;
+}
+
+#menu[data-active-index="27"] > #menu-background-pattern {
+  background-position: 0% 84%;
+}
+
+#menu[data-active-index="28"] > #menu-background-pattern {
+  background-position: 0% 87%;
+}
+
+#menu[data-active-index="29"] > #menu-background-pattern {
+  background-position: 0% 90%;
+}
+
+#menu[data-active-index="30"] > #menu-background-pattern {
+  background-position: 0% 93%;
+}
+
+#menu[data-active-index="31"] > #menu-background-pattern {
+  background-position: 0% 96%;
+}
+
+#menu[data-active-index="32"] > #menu-background-pattern {
+  background-position: 0% 99%;
+}
+
+#menu[data-active-index="33"] > #menu-background-pattern {
+  background-position: 0% 102%;
+}
+
+#menu[data-active-index="34"] > #menu-background-pattern {
+  background-position: 0% 105%;
+}
+
+#menu[data-active-index="35"] > #menu-background-pattern {
+  background-position: 0% 108%;
+}
+
+#menu[data-active-index="36"] > #menu-background-pattern {
+  background-position: 0% 111%;
+}
+
+#menu[data-active-index="37"] > #menu-background-pattern {
+  background-position: 0% 114%;
+}
+
+#menu[data-active-index="38"] > #menu-background-pattern {
+  background-position: 0% 117%;
+}
+
+#menu[data-active-index="39"] > #menu-background-pattern {
+  background-position: 0% 120%;
+}
+
+#menu[data-active-index="40"] > #menu-background-pattern {
+  background-position: 0% 123%;
+}
+
+#menu[data-active-index="41"] > #menu-background-pattern {
+  background-position: 0% 126%;
+}
+
+#menu[data-active-index="42"] > #menu-background-pattern {
+  background-position: 0% 129%;
+}
+
+#menu[data-active-index="43"] > #menu-background-pattern {
+  background-position: 0% 132%;
+}
+
+#menu[data-active-index="44"] > #menu-background-pattern {
+  background-position: 0% 135%;
+}
+
+#menu[data-active-index="45"] > #menu-background-pattern {
+  background-position: 0% 138%;
+}
+
+#menu[data-active-index="46"] > #menu-background-pattern {
+  background-position: 0% 141%;
+}
+
+#menu[data-active-index="47"] > #menu-background-pattern {
+  background-position: 0% 144%;
+}
+
+#menu[data-active-index="48"] > #menu-background-pattern {
+  background-position: 0% 147%;
+}
+
+#menu[data-active-index="49"] > #menu-background-pattern {
+  background-position: 0% 150%;
+}
+
+#menu[data-active-index="50"] > #menu-background-pattern {
+  background-position: 0% 153%;
+}
+
+#menu[data-active-index="51"] > #menu-background-pattern {
+  background-position: 0% 156%;
+}
+
+#menu[data-active-index="52"] > #menu-background-pattern {
+  background-position: 0% 159%;
+}
+
+#menu[data-active-index="53"] > #menu-background-pattern {
+  background-position: 0% 162%;
+}
+
+#menu[data-active-index="54"] > #menu-background-pattern {
+  background-position: 0% 165%;
+}
+
+#menu[data-active-index="55"] > #menu-background-pattern {
+  background-position: 0% 168%;
+}
+
+#menu[data-active-index="56"] > #menu-background-pattern {
+  background-position: 0% 171%;
+}
+
+#menu[data-active-index="57"] > #menu-background-pattern {
+  background-position: 0% 174%;
+}
+
+#menu[data-active-index="58"] > #menu-background-pattern {
+  background-position: 0% 177%;
+}
+
+#menu[data-active-index="59"] > #menu-background-pattern {
+  background-position: 0% 180%;
+}
+
+#menu[data-active-index="60"] > #menu-background-pattern {
+  background-position: 0% 183%;
+}
+
+#menu[data-active-index="61"] > #menu-background-pattern {
+  background-position: 0% 186%;
+}
+
+#menu[data-active-index="62"] > #menu-background-pattern {
+  background-position: 0% 189%;
+}
+
+#menu[data-active-index="63"] > #menu-background-pattern {
+  background-position: 0% 192%;
+}
+
+#menu[data-active-index="64"] > #menu-background-pattern {
+  background-position: 0% 195%;
+}
+
+#menu[data-active-index="65"] > #menu-background-pattern {
+  background-position: 0% 198%;
+}
+
+
+/*MENU BACKGROUND IMAGE*/
+#menu[data-active-index="0"] > #menu-background-image {
+  background-position: center -3%;
+}
+
+#menu[data-active-index="1"] > #menu-background-image {
+  background-position: center -6%;
+}
+
+#menu[data-active-index="2"] > #menu-background-image {
+  background-position: center -9%;
+}
+
+#menu[data-active-index="3"] > #menu-background-image {
+  background-position: center -12%;
+}
+
+#menu[data-active-index="4"] > #menu-background-image {
+  background-position: center -15%;
+}
+
+#menu[data-active-index="5"] > #menu-background-image {
+  background-position: center -18%;
+}
+
+#menu[data-active-index="6"] > #menu-background-image {
+  background-position: center -21%;
+}
+
+#menu[data-active-index="7"] > #menu-background-image {
+  background-position: center -24%;
+}
+
+#menu[data-active-index="8"] > #menu-background-image {
+  background-position: center -27%;
+}
+
+#menu[data-active-index="9"] > #menu-background-image {
+  background-position: center -30%;
+}
+
+#menu[data-active-index="10"] > #menu-background-image {
+  background-position: center -33%;
+}
+
+#menu[data-active-index="11"] > #menu-background-image {
+  background-position: center -36%;
+}
+
+#menu[data-active-index="12"] > #menu-background-image {
+  background-position: center -39%;
+}
+
+#menu[data-active-index="13"] > #menu-background-image {
+  background-position: center -42%;
+}
+
+#menu[data-active-index="14"] > #menu-background-image {
+  background-position: center -45%;
+}
+
+#menu[data-active-index="15"] > #menu-background-image {
+  background-position: center -48%;
+}
+
+#menu[data-active-index="16"] > #menu-background-image {
+  background-position: center -51%;
+}
+
+#menu[data-active-index="17"] > #menu-background-image {
+  background-position: center -54%;
+}
+
+#menu[data-active-index="18"] > #menu-background-image {
+  background-position: center -57%;
+}
+
+#menu[data-active-index="19"] > #menu-background-image {
+  background-position: center -60%;
+}
+
+#menu[data-active-index="20"] > #menu-background-image {
+  background-position: center -63%;
+}
+
+#menu[data-active-index="21"] > #menu-background-image {
+  background-position: center -66%;
+}
+
+#menu[data-active-index="22"] > #menu-background-image {
+  background-position: center -69%;
+}
+
+#menu[data-active-index="23"] > #menu-background-image {
+  background-position: center -72%;
+}
+
+#menu[data-active-index="24"] > #menu-background-image {
+  background-position: center -75%;
+}
+
+#menu[data-active-index="25"] > #menu-background-image {
+  background-position: center -78%;
+}
+
+#menu[data-active-index="26"] > #menu-background-image {
+  background-position: center -81%;
+}
+
+#menu[data-active-index="27"] > #menu-background-image {
+  background-position: center -84%;
+}
+
+#menu[data-active-index="28"] > #menu-background-image {
+  background-position: center -87%;
+}
+
+#menu[data-active-index="29"] > #menu-background-image {
+  background-position: center -90%;
+}
+
+#menu[data-active-index="30"] > #menu-background-image {
+  background-position: center -93%;
+}
+
+#menu[data-active-index="31"] > #menu-background-image {
+  background-position: center -96%;
+}
+
+#menu[data-active-index="32"] > #menu-background-image {
+  background-position: center -99%;
+}
+
+#menu[data-active-index="33"] > #menu-background-image {
+  background-position: center -102%;
+}
+
+#menu[data-active-index="34"] > #menu-background-image {
+  background-position: center -105%;
+}
+
+#menu[data-active-index="35"] > #menu-background-image {
+  background-position: center -108%;
+}
+
+#menu[data-active-index="36"] > #menu-background-image {
+  background-position: center -111%;
+}
+
+#menu[data-active-index="37"] > #menu-background-image {
+  background-position: center -114%;
+}
+
+#menu[data-active-index="38"] > #menu-background-image {
+  background-position: center -117%;
+}
+
+#menu[data-active-index="39"] > #menu-background-image {
+  background-position: center -120%;
+}
+
+#menu[data-active-index="40"] > #menu-background-image {
+  background-position: center -123%;
+}
+
+#menu[data-active-index="41"] > #menu-background-image {
+  background-position: center -126%;
+}
+
+#menu[data-active-index="42"] > #menu-background-image {
+  background-position: center -129%;
+}
+
+#menu[data-active-index="43"] > #menu-background-image {
+  background-position: center -132%;
+}
+
+#menu[data-active-index="44"] > #menu-background-image {
+  background-position: center -135%;
+}
+
+#menu[data-active-index="45"] > #menu-background-image {
+  background-position: center -138%;
+}
+
+#menu[data-active-index="46"] > #menu-background-image {
+  background-position: center -141%;
+}
+
+#menu[data-active-index="47"] > #menu-background-image {
+  background-position: center -144%;
+}
+
+#menu[data-active-index="48"] > #menu-background-image {
+  background-position: center -147%;
+}
+
+#menu[data-active-index="49"] > #menu-background-image {
+  background-position: center -150%;
+}
+
+#menu[data-active-index="50"] > #menu-background-image {
+  background-position: center -153%;
+}
+
+#menu[data-active-index="51"] > #menu-background-image {
+  background-position: center -156%;
+}
+
+#menu[data-active-index="52"] > #menu-background-image {
+  background-position: center -159%;
+}
+
+#menu[data-active-index="53"] > #menu-background-image {
+  background-position: center -162%;
+}
+
+#menu[data-active-index="54"] > #menu-background-image {
+  background-position: center -165%;
+}
+
+#menu[data-active-index="55"] > #menu-background-image {
+  background-position: center -168%;
+}
+
+#menu[data-active-index="56"] > #menu-background-image {
+  background-position: center -171%;
+}
+
+#menu[data-active-index="57"] > #menu-background-image {
+  background-position: center -174%;
+}
+
+#menu[data-active-index="58"] > #menu-background-image {
+  background-position: center -177%;
+}
+
+#menu[data-active-index="59"] > #menu-background-image {
+  background-position: center -170%;
+}
+
+#menu[data-active-index="60"] > #menu-background-image {
+  background-position: center -183%;
+}
+
+#menu[data-active-index="61"] > #menu-background-image {
+  background-position: center -186%;
+}
+
+#menu[data-active-index="62"] > #menu-background-image {
+  background-position: center -189%;
+}
+
+#menu[data-active-index="63"] > #menu-background-image {
+  background-position: center -201%;
+}
+
+#menu[data-active-index="64"] > #menu-background-image {
+  background-position: center -204%;
+}
