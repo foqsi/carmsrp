@@ -26,8 +26,16 @@ body {
 /* MAKE design when hover */
 #menu-items:hover > .menu-item {
   opacity: 0.3;
-  transform: translate3d(-5vw, 0, 0);
 }
+
+/*testing with line 10 of index.js*/
+#menu[data-active-index="0"] > .menu-item {
+  position: -5vw;
+}
+#menu[data-active-index="1"] > .menu-item {
+  position: -10vw;
+}
+
 /* MAKE design when hover selected */
 #menu-items:hover > .menu-item:hover {
   color: #45f3ff;
