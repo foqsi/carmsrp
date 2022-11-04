@@ -6,7 +6,7 @@ body {
 /* MAKE placement */
 #menu-items {
   margin-top: clamp(4rem, 30vh, 48rem);
-  margin-left: clamp(4rem, 30vw, 48rem);
+  margin-bottom: clamp(4rem, 30vw, 48rem);
   position: relative;
   z-index: 2;
 }
@@ -14,14 +14,17 @@ body {
 .menu-item {
   color: white;
   cursor: pointer;
-  display: block;
+  display: flex;
   font-family: 'Ibarra Real Nova', serif;
-  font-size: clamp(1rem, 2vw, 2rem);
+  font-size: clamp(1rem, 3vw, 2rem);
   font-variant: small-caps;
-  letter-spacing: 0.5vmin;
+  letter-spacing: 0.4vmin;
   padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
   transition: opacity 400ms ease;
+  transition: color 0.5s;
   scroll-behavior: smooth;
+  margin-left: 40%;
+  margin-right: 30%;
 }
 /* MAKE design when hover */
 #menu-items:hover > .menu-item {
@@ -52,14 +55,14 @@ body {
   );
   background-position: 0% 0%;
   background-size: 9vmin 9vmin;
-  height: 340vh;
+  height: 430vh;
   left: 0px;
   position: absolute;
   top: 0px;
   transition: opacity 800ms ease,
     background-size 800ms ease,
     background-position 800ms ease;
-  width: 100vw;
+  width: 100%;
   z-index: 1;
 }
 #menu-items:hover ~ #menu-background-pattern {
@@ -73,8 +76,9 @@ body {
 #menu-background-image {
   background-image: url("logobackground.jpg");
   background-attachment: fixed;
+  background-repeat: repeat;
   background-size: 110vmax;
-  height: 350%;
+  min-height: 430vh;
   left: 0px;
   opacity: 0.15;
   position: absolute;
@@ -82,7 +86,7 @@ body {
   transition: opacity 800ms ease,
     background-size 800ms ease,
     background-position 800ms ease;
-  width: 100%;
+  min-width: 100%;
   z-index: 0;
 }
 #menu-items:hover ~ #menu-background-image {
