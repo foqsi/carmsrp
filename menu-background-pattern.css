@@ -3,12 +3,14 @@ body {
   margin: 0px;
 }
 
+/* MAKE placement */
 #menu-items {
   margin-top: clamp(4rem, 30vh, 48rem);
   margin-left: clamp(4rem, 30vw, 48rem);
   position: relative;
   z-index: 2;
 }
+/*MAKE design */
 .menu-item {
   color: white;
   cursor: pointer;
@@ -21,14 +23,18 @@ body {
   transition: opacity 400ms ease;
   scroll-behavior: smooth;
 }
+/* MAKE design when hover */
 #menu-items:hover > .menu-item {
   opacity: 0.3;
+  transform: translate3d(-5vw, 0, 0);
 }
+/* MAKE design when hover selected */
 #menu-items:hover > .menu-item:hover {
   color: #45f3ff;
   text-decoration: underline;
   opacity: 1;
 }
+
 
 /*Background Pattern*/
 #menu-background-pattern {
@@ -53,7 +59,9 @@ body {
   opacity: 0.3;
 }
 
-/*Background Image*/
+/*
+**Background Image**
+*/
 #menu-background-image {
   background-image: url("logobackground.jpg");
   background-attachment: fixed;
@@ -74,7 +82,9 @@ body {
   opacity: 0.1;
 }
 
-/*MENU BACKGROUND PATTERN*/
+/*
+**MENU BACKGROUND PATTERN**
+*/
 #menu[data-active-index="0"] > #menu-background-pattern {
   background-position: 0% 3%;
 }
@@ -340,7 +350,9 @@ body {
 }
 
 
-/*MENU BACKGROUND IMAGE*/
+/*
+**MENU BACKGROUND IMAGE**
+*/
 #menu[data-active-index="0"] > #menu-background-image {
   background-position: center -3%;
 }
