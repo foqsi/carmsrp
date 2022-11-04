@@ -24,7 +24,7 @@ body {
   transition: color 0.5s;
   scroll-behavior: smooth;
   margin-left: 40%;
-  margin-right: 30%;
+  margin-right: 46%;
 }
 /* MAKE design when hover */
 #menu-items:hover > .menu-item {
