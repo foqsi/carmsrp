@@ -9,13 +9,13 @@ body {
   position: relative;
   z-index: 2;
 }
-
 .menu-item {
   color: white;
   cursor: pointer;
   display: block;
   font-family: 'Ibarra Real Nova', serif;
   font-size: clamp(1rem, 2vw, 2rem);
+  font-variant: small-caps;
   letter-spacing: 0.5vmin;
   padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
   transition: opacity 400ms ease;
@@ -25,12 +25,10 @@ body {
   opacity: 0.3;
 }
 #menu-items:hover > .menu-item:hover {
+  color: #45f3ff;
+  text-decoration: underline;
   opacity: 1;
 }
-.menu-item:hover {
-  color: #45f3ff;
-}
-
 
 /*Background Pattern*/
 #menu-background-pattern {
