@@ -4,7 +4,6 @@ html {
   padding: 0;
 }
 
-/* MAKE placement */
 #menu-items {
   margin-top: clamp(4rem, 30vh, 48rem);
   margin-bottom: clamp(4rem, 30vw, 48rem);
@@ -12,7 +11,6 @@ html {
   z-index: 99;
 }
 
-/* MAKE design */
 .menu-item {
   color: white;
   cursor: pointer;
@@ -26,20 +24,16 @@ html {
   display: inline-block;
 }
 
-
-/* MAKE design when hover */
 #menu-items:hover>.menu-item {
   opacity: 0.4;
 }
 
-/* MAKE design when hover selected */
 #menu-items:hover>.menu-item:hover {
   color: #45f3ff;
   text-decoration: underline;
   opacity: 1;
 }
 
-/*Background Pattern*/
 #menu-background-pattern {
   background-image: radial-gradient(rgba(255, 255, 255, 0.1) 9%,
       transparent 9%);

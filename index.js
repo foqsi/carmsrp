@@ -1,51 +1,49 @@
 const carMakes = [
     "Acura",
-    // "Alfa Romeo",
-    // "Aston Martin",
+    "Alfa Romeo",
+    "Aston Martin",
     "Audi",
     "BMW",
-    // "Buick",
-    // "Cadillac",
+    "Buick",
+    "Cadillac",
     "Chevrolet",
-    // "Chrysler",
+    "Chrysler",
     "Dodge",
     "Ford",
-    // "Genesis",
+    "Genesis",
     "GMC",
     "Honda",
     "Hyundai",
-    // "Infiniti",
-    // "Jaguar",
+    "Infiniti",
+    "Jaguar",
     "Jeep",
     "Kia",
-    // "Lexus",
-    // "Lincoln",
-    // "Mazda",
-    // "Mercedes-Benz",
-    // "Mercury",
-    // "Mini",
-    // "Mitsubishi",
+    "Lexus",
+    "Lincoln",
+    "Mazda",
+    "Mercedes-Benz",
+    "Mercury",
+    "Mini",
+    "Mitsubishi",
     "Nissan",
-    // "Pontiac",
+    "Pontiac",
     "Ram",
-    // "Subaru",
-    // "Tesla",
+    "Subaru",
+    "Tesla",
     "Toyota",
-    // "Volvo"
+    "Volvo"
 ];
 
 const container = document.getElementById('menu-items');
 const menuBackgroundPattern = document.getElementById('menu-background-pattern');
 const menuBackgroundImage = document.getElementById('menu-background-image');
 
-// Create a div for each car make
 carMakes.forEach((make, index) => {
-    const carMakeDiv = document.createElement('div'); // Create div
-    carMakeDiv.className = 'menu-item'; // Add class and id to div
-    carMakeDiv.textContent = make; // Add text to div
-    container.appendChild(carMakeDiv); // Add div to container
+    const carMakeDiv = document.createElement('div');
+    carMakeDiv.className = 'menu-item';
+    carMakeDiv.textContent = make;
+    container.appendChild(carMakeDiv);
 
-    // Add event listener for mouseover event
     carMakeDiv.addEventListener('mouseover', () => {
         menuBackgroundPattern.style.backgroundPosition = `0% ${3 - index * 3}%`;
         menuBackgroundImage.style.backgroundPosition = `0% ${3 + index * 3}%`;
