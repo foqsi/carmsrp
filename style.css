@@ -1,0 +1,84 @@
+html {
+  background-color: rgb(20, 20, 20);
+  margin: 0;
+  padding: 0;
+}
+
+/* MAKE placement */
+#menu-items {
+  margin-top: clamp(4rem, 30vh, 48rem);
+  margin-bottom: clamp(4rem, 30vw, 48rem);
+  position: relative;
+  z-index: 99;
+}
+
+/* MAKE design */
+.menu-item {
+  color: white;
+  cursor: pointer;
+  font-family: 'Ibarra Real Nova', serif;
+  font-size: clamp(1rem, 3vw, 2rem);
+  font-variant: small-caps;
+  letter-spacing: 0.4vmin;
+  padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
+  transition: opacity 400ms ease, color 0.5s;
+  margin-left: 50%;
+  display: inline-block;
+}
+
+
+/* MAKE design when hover */
+#menu-items:hover>.menu-item {
+  opacity: 0.4;
+}
+
+/* MAKE design when hover selected */
+#menu-items:hover>.menu-item:hover {
+  color: #45f3ff;
+  text-decoration: underline;
+  opacity: 1;
+}
+
+/*Background Pattern*/
+#menu-background-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 9%,
+      transparent 9%);
+  background-position: 0% 0%;
+  background-size: 12vmin 12vmin;
+  height: 100vh;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  transition: opacity 800ms ease,
+    background-size 800ms ease,
+    background-position 800ms ease;
+  width: 98vw;
+}
+
+#menu-items:hover~#menu-background-pattern {
+  background-size: 7vmin 7vmin;
+  opacity: 0.3;
+}
+
+/* Background Image */
+#menu-background-image {
+  background-image: url("images/logobackground.jpg");
+  background-attachment: fixed;
+  background-repeat: repeat;
+  background-size: 110vmax;
+  height: 100vh;
+  left: 0;
+  width: 100%;
+  opacity: 0.15;
+  position: fixed;
+  top: 0;
+  transition: opacity 800ms ease,
+    background-size 800ms ease,
+    background-position 800ms ease;
+  z-index: -1;
+}
+
+#menu-items:hover~#menu-background-image {
+  background-size: 150vmax;
+  opacity: 0.1;
+}
