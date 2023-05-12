@@ -1,0 +1,412 @@
+[
+    {
+        "id": "acura",
+        "name": "Acura",
+        "children": [
+            {
+                "id": "cdx",
+                "name": "CDX",
+                "children": [
+                    {
+                        "id": "standard",
+                        "name": "Standard"
+                    },
+                    {
+                        "id": "premium",
+                        "name": "Premium"
+                    },
+                    {
+                        "id": "technology-plus",
+                        "name": "Technology Plus"
+                    },
+                    {
+                        "id": "a-spec",
+                        "name": "A-Spec"
+                    },
+                    {
+                        "id": "a-spec-technology-plus",
+                        "name": "A-Spec Technology Plus"
+                    }
+                ]
+            },
+            {
+                "id": "cl",
+                "name": "CL",
+                "children": [
+                    {
+                        "id": "standard",
+                        "name": "Standard"
+                    },
+                    {
+                        "id": "type-s",
+                        "name": "Type-S"
+                    }
+                ]
+            },
+            {
+                "id": "csx",
+                "name": "CSX",
+                "children": [
+                    {
+                        "id": "base",
+                        "name": "Base"
+                    },
+                    {
+                        "id": "premium",
+                        "name": "Premium"
+                    },
+                    {
+                        "id": "type-s",
+                        "name": "Type-S"
+                    }
+                ]
+            },
+            {
+                "id": "el",
+                "name": "EL",
+                "children": [
+                    {
+                        "id": "base",
+                        "name": "Base"
+                    },
+                    {
+                        "id": "premium",
+                        "name": "Premium"
+                    }
+                ]
+            },
+            {
+                "id": "ilx",
+                "name": "ILX",
+                "children": [
+                    {
+                        "id": "standard",
+                        "name": "Standard"
+                    },
+                    {
+                        "id": "premium",
+                        "name": "Premium"
+                    },
+                    {
+                        "id": "technology-plus",
+                        "name": "Technology Plus"
+                    },
+                    {
+                        "id": "a-spec",
+                        "name": "A-Spec"
+                    },
+                    {
+                        "id": "a-spec-technology-plus",
+                        "name": "A-Spec Technology Plus"
+                    },
+                    {
+                        "id": "hybrid",
+                        "name": "Hybrid"
+                    },
+                    {
+                        "id": "hybrid-technology-plus",
+                        "name": "Hybrid Technology Plus"
+                    },
+                    {
+                        "id": "hybrid-a-spec",
+                        "name": "Hybrid A-Spec"
+                    },
+                    {
+                        "id": "hybrid-a-spec-technology-plus",
+                        "name": "Hybrid A-Spec Technology Plus"
+                    },
+                    {
+                        "id": "hybrid-advance",
+                        "name": "Hybrid Advance"
+                    },
+                    {
+                        "id": "hybrid-advance-technology-plus",
+                        "name": "Hybrid Advance Technology Plus"
+                    },
+                    {
+                        "id": "hybrid-advance-a-spec",
+                        "name": "Hybrid Advance A-Spec"
+                    },
+                    {
+                        "id": "hybrid-advance-a-spec-technology-plus",
+                        "name": "Hybrid Advance A-Spec Technology Plus"
+                    }
+                ]
+            },
+            {
+                "id": "legend",
+                "name": "Legend",
+                "children": [
+                    {
+                        "id": "standard",
+                        "name": "Standard"
+                    },
+                    {
+                        "id": "premium",
+                        "name": "Premium"
+                    },
+                    {
+                        "id": "type-s",
+                        "name": "Type-S"
+                    }
+                ]
+            },
+            {
+                "id": "mdx",
+                "name": "MDX",
+                "children": [
+                    {
+                        "id": "standard",
+                        "name": "Standard"
+                    },
+                    {
+                        "id": "technology",
+                        "name": "Technology"
+                    },
+                    {
+                        "id": "a-spec",
+                        "name": "A-Spec"
+                    },
+                    {
+                        "id": "advance",
+                        "name": "Advance"
+                    },
+                    {
+                        "id": "advance-a-spec",
+                        "name": "Advance A-Spec"
+                    },
+                    {
+                        "id": "type-s",
+                        "name": "Type-S"
+                    }
+                ]
+            },
+            {
+                "id": "nsx",
+                "name": "NSX",
+                "children": [
+                    {
+                        "id": "standard",
+                        "name": "Standard"
+                    },
+                    {
+                        "id": "type-r",
+                        "name": "Type R"
+                    },
+                    {
+                        "id": "type-s",
+                        "name": "Type S"
+                    }
+                ]
+            },
+            {
+                "id": "rdx",
+                "name": "RDX",
+                "children": [
+                    {
+                        "id": "standard",
+                        "name": "Standard"
+                    },
+                    {
+                        "id": "technology",
+                        "name": "Technology"
+                    },
+                    {
+                        "id": "a-spec",
+                        "name": "A-Spec"
+                    },
+                    {
+                        "id": "advance",
+                        "name": "Advance"
+                    },
+                    {
+                        "id": "advance-a-spec",
+                        "name": "Advance A-Spec"
+                    },
+                    {
+                        "id": "type-s",
+                        "name": "Type-S"
+                    }
+                ]
+            },
+            {
+                "id": "rl",
+                "name": "RL",
+                "children": [
+                    {
+                        "id": "standard",
+                        "name": "Standard"
+                    },
+                    {
+                        "id": "technology",
+                        "name": "Technology"
+                    },
+                    {
+                        "id": "advance",
+                        "name": "Advance"
+                    },
+                    {
+                        "id": "advance-package",
+                        "name": "Advance Package"
+                    }
+                ]
+            },
+            {
+                "id": "rlx",
+                "name": "RLX",
+                "children": [
+                    {
+                        "id": "standard",
+                        "name": "Standard"
+                    },
+                    {
+                        "id": "technology",
+                        "name": "Technology"
+                    },
+                    {
+                        "id": "a-spec",
+                        "name": "A-Spec"
+                    },
+                    {
+                        "id": "advance",
+                        "name": "Advance"
+                    },
+                    {
+                        "id": "advance-a-spec",
+                        "name": "Advance A-Spec"
+                    },
+                    {
+                        "id": "type-s",
+                        "name": "Type-S"
+                    }
+                ]
+            },
+            {
+                "id": "rsx",
+                "name": "RSX",
+                "children": [
+                    {
+                        "id": "base",
+                        "name": "Base"
+                    },
+                    {
+                        "id": "type-s",
+                        "name": "Type-S"
+                    }
+                ]
+            },
+            {
+                "id": "tl",
+                "name": "TL",
+                "children": [
+                    {
+                        "id": "standard",
+                        "name": "Standard"
+                    },
+                    {
+                        "id": "technology-plus",
+                        "name": "Technology Plus"
+                    },
+                    {
+                        "id": "a-spec",
+                        "name": "A-Spec"
+                    },
+                    {
+                        "id": "a-spec-technology-plus",
+                        "name": "A-Spec Technology Plus"
+                    },
+                    {
+                        "id": "advance",
+                        "name": "Advance"
+                    },
+                    {
+                        "id": "advance-technology-plus",
+                        "name": "Advance Technology Plus"
+                    },
+                    {
+                        "id": "advance-a-spec",
+                        "name": "Advance A-Spec"
+                    },
+                    {
+                        "id": "advance-a-spec-technology-plus",
+                        "name": "Advance A-Spec Technology Plus"
+                    }
+                ]
+            },
+            {
+                "id": "tlx",
+                "name": "TLX",
+                "children": [
+                    {
+                        "id": "standard",
+                        "name": "Standard"
+                    },
+                    {
+                        "id": "technology-plus",
+                        "name": "Technology Plus"
+                    },
+                    {
+                        "id": "a-spec",
+                        "name": "A-Spec"
+                    },
+                    {
+                        "id": "a-spec-technology-plus",
+                        "name": "A-Spec Technology Plus"
+                    },
+                    {
+                        "id": "advance",
+                        "name": "Advance"
+                    },
+                    {
+                        "id": "advance-technology-plus",
+                        "name": "Advance Technology Plus"
+                    },
+                    {
+                        "id": "advance-a-spec",
+                        "name": "Advance A-Spec"
+                    },
+                    {
+                        "id": "advance-a-spec-technology-plus",
+                        "name": "Advance A-Spec Technology Plus"
+                    }
+                ]
+            },
+            {
+                "id": "tsx",
+                "name": "TSX",
+                "children": [
+                    {
+                        "id": "standard",
+                        "name": "Standard"
+                    },
+                    {
+                        "id": "technology",
+                        "name": "Technology"
+                    },
+                    {
+                        "id": "a-spec",
+                        "name": "A-Spec"
+                    }
+                ]
+            },
+            {
+                "id": "zdx",
+                "name": "ZDX",
+                "children": [
+                    {
+                        "id": "base",
+                        "name": "Base"
+                    },
+                    {
+                        "id": "technology-package",
+                        "name": "Technology Package"
+                    },
+                    {
+                        "id": "advance-package",
+                        "name": "Advance Package"
+                    }
+                ]
+            }
+        ]
+    }
+]

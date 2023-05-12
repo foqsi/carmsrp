@@ -4,14 +4,23 @@ html {
   padding: 0;
 }
 
-#menu-items {
+#container {
   margin-top: clamp(4rem, 30vh, 48rem);
   margin-bottom: clamp(4rem, 30vw, 48rem);
   position: relative;
   z-index: 99;
 }
 
-.menu-item {
+#make-items,
+#model-items,
+#trim-items {
+  position: absolute;
+  transform: translateX(100%);
+  transition: all 0.7s ease-in-out;
+}
+
+.menu-item,
+.menu-item-models {
   color: white;
   cursor: pointer;
   font-family: 'Ibarra Real Nova', serif;
@@ -24,11 +33,12 @@ html {
   display: inline-block;
 }
 
-#menu-items:hover>.menu-item {
-  opacity: 0.4;
+
+#container:hover>.menu-item {
+  opacity: 0.5;
 }
 
-#menu-items:hover>.menu-item:hover {
+#container:hover>.menu-item:hover {
   color: #45f3ff;
   text-decoration: underline;
   opacity: 1;
@@ -49,7 +59,7 @@ html {
   width: 98vw;
 }
 
-#menu-items:hover~#menu-background-pattern {
+#container:hover~#menu-background-pattern {
   background-size: 7vmin 7vmin;
   opacity: 0.3;
 }
@@ -72,7 +82,7 @@ html {
   z-index: -1;
 }
 
-#menu-items:hover~#menu-background-image {
+#container:hover~#menu-background-image {
   background-size: 150vmax;
   opacity: 0.1;
 }
