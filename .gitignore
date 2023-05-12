@@ -1,4 +1,4 @@
 *.db
 *.txt
 carMakes.js
-.vscode
+/.vscode

@@ -64,7 +64,6 @@ html {
   opacity: 0.3;
 }
 
-/* Background Image */
 #menu-background-image {
   background-image: url("images/logobackground.jpg");
   background-attachment: fixed;
