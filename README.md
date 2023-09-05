@@ -1,5 +1,5 @@
 # https://allcardb.com/
-#Domain not updated
+# Domain not updated
 
 The intention of this project is to display front-end/UI skills. 
 The user will select the make, model, year, & trim of a vehicle. 
