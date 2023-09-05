@@ -1,4 +1,4 @@
-# https://allcardb.com/
+# https://allcardb.com/ - Work in progress
 # Domain not updated
 
 The intention of this project is to display front-end/UI skills. 
