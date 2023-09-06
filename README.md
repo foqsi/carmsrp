@@ -9,7 +9,7 @@ It will likely utilize a database that I have created myself, unless I find one 
 
 This is just a side project I am working on. 
 I expand on it as I learn. I started out with just basic HTML and CSS. 
-When I learned JS, I decided to take a new approach utilizing JS.
+When I learned JS, I decided to take a new approach utilizing JS, which is how it currently sits.
 
 Will be converted to React soon.
 
