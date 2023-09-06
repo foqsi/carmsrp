@@ -4,41 +4,44 @@ html {
   padding: 0;
 }
 
-#container {
+.menu-container {
   margin-top: clamp(4rem, 30vh, 48rem);
   margin-bottom: clamp(4rem, 30vw, 48rem);
-  position: relative;
-  z-index: 99;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  width: 100%;
+  z-index: 1;
+  /* position: absolute; */
+  display: flex;
+  justify-content: center;
 }
 
-#make-items,
-#model-items,
-#trim-items {
-  position: absolute;
-  transform: translateX(100%);
-  transition: all 0.7s ease-in-out;
-}
-
-.menu-item,
-.menu-item-models {
+.menu-item {
+  text-align: left;
   color: white;
   cursor: pointer;
   font-family: 'Ibarra Real Nova', serif;
-  font-size: clamp(1rem, 3vw, 2rem);
+  font-size: clamp(1rem, 2vw, 1.2rem);
   font-variant: small-caps;
   letter-spacing: 0.4vmin;
   padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
   transition: opacity 400ms ease, color 0.5s;
   margin-left: 50%;
   display: inline-block;
+  width: auto;
+
 }
 
-
-#container:hover>.menu-item {
+#make-container:hover>.menu-item,
+#model-container:hover>.menu-item,
+#trim-container:hover>.menu-item {
   opacity: 0.5;
 }
 
-#container:hover>.menu-item:hover {
+#make-container:hover>.menu-item:hover,
+#model-container:hover>.menu-item:hover,
+#trim-container:hover>.menu-item:hover {
   color: #45f3ff;
   text-decoration: underline;
   opacity: 1;
@@ -57,9 +60,10 @@ html {
     background-size 800ms ease,
     background-position 800ms ease;
   width: 98vw;
+  z-index: -1;
 }
 
-#container:hover~#menu-background-pattern {
+.menu-container:hover~#menu-background-pattern {
   background-size: 7vmin 7vmin;
   opacity: 0.3;
 }
@@ -81,7 +85,7 @@ html {
   z-index: -1;
 }
 
-#container:hover~#menu-background-image {
+.menu-container:hover~#menu-background-image {
   background-size: 150vmax;
   opacity: 0.1;
 }

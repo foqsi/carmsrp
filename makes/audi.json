@@ -1,61 +1,55 @@
 [
     {
-        "id": "audi",
-        "name": "Audi",
+        "id": "a1",
+        "name": "A1",
         "children": [
             {
-                "id": "a1",
-                "name": "A1",
-                "children": [
-                    {
-                        "id": "standard",
-                        "name": "Standard"
-                    },
-                    {
-                        "id": "sport",
-                        "name": "Sport"
-                    },
-                    {
-                        "id": "sline",
-                        "name": "S Line"
-                    }
-                ]
+                "id": "standard",
+                "name": "Standard"
             },
             {
-                "id": "a2",
-                "name": "A2",
-                "children": [
-                    {
-                        "id": "standard",
-                        "name": "Standard"
-                    },
-                    {
-                        "id": "sport",
-                        "name": "Sport"
-                    },
-                    {
-                        "id": "sline",
-                        "name": "S Line"
-                    }
-                ]
+                "id": "sport",
+                "name": "Sport"
             },
             {
-                "id": "a3",
-                "name": "A3",
-                "children": [
-                    {
-                        "id": "standard",
-                        "name": "Standard"
-                    },
-                    {
-                        "id": "sport",
-                        "name": "Sport"
-                    },
-                    {
-                        "id": "sline",
-                        "name": "S Line"
-                    }
-                ]
+                "id": "sline",
+                "name": "S Line"
+            }
+        ]
+    },
+    {
+        "id": "a2",
+        "name": "A2",
+        "children": [
+            {
+                "id": "standard",
+                "name": "Standard"
+            },
+            {
+                "id": "sport",
+                "name": "Sport"
+            },
+            {
+                "id": "sline",
+                "name": "S Line"
+            }
+        ]
+    },
+    {
+        "id": "a3",
+        "name": "A3",
+        "children": [
+            {
+                "id": "standard",
+                "name": "Standard"
+            },
+            {
+                "id": "sport",
+                "name": "Sport"
+            },
+            {
+                "id": "sline",
+                "name": "S Line"
             }
         ]
     }
