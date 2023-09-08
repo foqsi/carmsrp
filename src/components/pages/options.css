@@ -4,29 +4,34 @@
     font-family: 'Ibarra Real Nova', serif;
     font-size: clamp(1rem, 2vw, 1.2rem);
     font-variant: small-caps;
+    font-size: xx-large;
     letter-spacing: 0.4vmin;
     transition: opacity 400ms ease, color 0.5s;
 }
 
 .default-hover:hover {
     text-decoration: underline;
-    color: #45f3ff;
+    color: #1bd6e4;
 }
 
-.wrapper-div {
+.breadcrumb {
+    font-size: 28px;
+}
+
+/* .breadcrumb:hover {
+    text-decoration: underline;
+    color: #45f3ff;
+    cursor: pointer;
+} */
+
+.active-list-wrapper {
     overflow: hidden;
-    max-height: 500px;
-    /* Set this to your desired height */
-    width: 260px;
+    width: 400px;
 }
 
 .active-list {
     overflow-y: auto;
-    max-height: 500px;
-    height: 400px;
-    /* Set this to your desired height */
+    height: 700px;
     margin-right: -17px;
-    /* Hide scrollbar by setting negative margin */
     padding-right: 17px;
-    /* Add padding to compensate for negative margin */
 }

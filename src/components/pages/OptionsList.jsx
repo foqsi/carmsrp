@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CarData from './CarData.jsx';
 import './options.css';
 
@@ -38,6 +38,20 @@ const OptionsList = () => {
         }
     };
 
+    useEffect(() => {
+        const handleScroll = (e) => {
+            const scrollY = e.target.scrollTop;
+            e.target.style.backgroundPosition = `0 ${scrollY}px`;
+        };
+
+        const listElement = document.querySelector('.active-list');
+        listElement.addEventListener('scroll', handleScroll);
+
+        return () => {
+            listElement.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     const handleClickMake = (make) => {
         setSelectedMake(make);
         setCurrentWindow(make);
@@ -64,10 +78,9 @@ const OptionsList = () => {
         setCurrentWindow(trim);
     };
 
-    // Function to group years into ranges
     const groupYears = (years) => {
         if (!years || years.length === 0) return [];
-        years.sort((a, b) => a - b);  // Sort years
+        years.sort((a, b) => a - b);
         const ranges = [];
         let start = years[0], end = years[0];
 
@@ -84,17 +97,36 @@ const OptionsList = () => {
     };
 
     return (
-        <div className=" bg-slate-200 text-black p-8 rounded-lg shadow-lg w-auto text-center opacity-95 max-h-screen transition-all duration-700 ease-in-out overflow-y-hidden">
+        <div className=" bg-slate-200 text-black p-8 rounded-lg shadow-lg w-auto h-[800px] text-center opacity-95 transition-all duration-700 ease-in-out overflow-y-hidden">
             <div className="breadcrumb">
-                <span onClick={() => handleBreadCrumbClick('Make')} className={currentWindow === 'Make' ? '' : 'cursor-pointer'}>Make</span>
-                {selectedMake && <span onClick={() => handleBreadCrumbClick('Model')} className={currentWindow === selectedMake ? '' : 'cursor-pointer'}>{' > '}{selectedMake}</span>}
-                {selectedModel && <span onClick={() => handleBreadCrumbClick('Year')} className={currentWindow === selectedModel ? '' : 'cursor-pointer'}>{' > '}{selectedModel}</span>}
-                {selectedYear && <span className={currentWindow === selectedYear ? '' : 'cursor-pointer'}>{' > '}{selectedYear}</span>}
+                <span onClick={() => handleBreadCrumbClick('Make')} className={currentWindow === 'Make' ? '' : 'cursor-pointer hover:underline hover:text-blue-400'}>Make</span>
+                {selectedMake && (
+                    <span onClick={() => handleBreadCrumbClick('Model')}>
+                        {' > '}
+                        <span className={currentWindow === selectedMake ? '' : 'cursor-pointer hover:underline hover:text-blue-400'}>
+                            {selectedMake}
+                        </span>
+                    </span>
+                )}
+                {selectedModel && (
+                    <span onClick={() => handleBreadCrumbClick('Year')}>
+                        {' > '}
+                        <span className={currentWindow === selectedModel ? '' : 'cursor-pointer hover:underline hover:text-blue-400'}>
+                            {selectedModel}
+                        </span>
+                    </span>
+                )}
+                {selectedYear && (
+                    <span>
+                        {' > '}
+                        <span className={currentWindow === selectedYear ? '' : 'cursor-pointer hover:underline hover:text-blue-400'}>
+                            {selectedYear}
+                        </span>
+                    </span>
+                )}
             </div>
-            <div className='wrapper-div'>
-                <div className="active-list bg-white text-black p-8 rounded-lg shadow-lg w-auto text-center opacity-95 max-h-screen transition-all duration-700 ease-in-out">
-
-
+            <div className='active-list-wrapper'>
+                <div className="active-list bg-white text-black p-8 rounded-lg shadow-lg w-auto text-center opacity-95 transition-all duration-700 ease-in-out">
                     {selectedYear ? (
                         <ul className="transition-all duration-500 ease-in-out">
                             {CarData[selectedMake][selectedModel][selectedYearRange].trims.map((trim, index) => (
