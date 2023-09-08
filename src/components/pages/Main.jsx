@@ -17,7 +17,7 @@ const Main = () => {
     return (
         <div className='bg-background-image bg-cover'>
             <div className="absolute inset-0 bg-zinc-600 opacity-60">
-                {/*Intentionally left blank*/}
+                {/*Intentionally left blank LOL*/}
             </div>
             <div className={`flex flex-col items-center justify-center min-h-screen relative z-10 ${animate}`}>
                 {!showOptions ?
@@ -32,7 +32,7 @@ const Main = () => {
                         </button>
                     </div>
                     :
-                    <OptionsList />  // Here the OptionsList component is used
+                    <OptionsList />
                 }
             </div>
         </div>
