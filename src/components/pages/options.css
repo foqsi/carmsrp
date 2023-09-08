@@ -1,0 +1,14 @@
+.default-hover {
+    color: black;
+    cursor: pointer;
+    font-family: 'Ibarra Real Nova', serif;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-variant: small-caps;
+    letter-spacing: 0.4vmin;
+    transition: opacity 400ms ease, color 0.5s;
+}
+
+.default-hover:hover {
+    text-decoration: underline;
+    color: #45f3ff;
+}
