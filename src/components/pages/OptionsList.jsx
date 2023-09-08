@@ -84,58 +84,59 @@ const OptionsList = () => {
     };
 
     return (
-        <div className="bg-white text-black p-8 rounded-lg shadow-lg w-auto text-center opacity-95 overflow-y-auto max-h-screen transition-all duration-700 ease-in-out overflow-hidden">
+        <div className=" bg-slate-200 text-black p-8 rounded-lg shadow-lg w-auto text-center opacity-95 max-h-screen transition-all duration-700 ease-in-out overflow-y-hidden">
             <div className="breadcrumb">
                 <span onClick={() => handleBreadCrumbClick('Make')} className={currentWindow === 'Make' ? '' : 'cursor-pointer'}>Make</span>
                 {selectedMake && <span onClick={() => handleBreadCrumbClick('Model')} className={currentWindow === selectedMake ? '' : 'cursor-pointer'}>{' > '}{selectedMake}</span>}
                 {selectedModel && <span onClick={() => handleBreadCrumbClick('Year')} className={currentWindow === selectedModel ? '' : 'cursor-pointer'}>{' > '}{selectedModel}</span>}
                 {selectedYear && <span className={currentWindow === selectedYear ? '' : 'cursor-pointer'}>{' > '}{selectedYear}</span>}
             </div>
+            <div className='wrapper-div'>
+                <div className="active-list bg-white text-black p-8 rounded-lg shadow-lg w-auto text-center opacity-95 max-h-screen transition-all duration-700 ease-in-out">
 
-            <div className="bg-white text-black p-8 rounded-lg shadow-lg w-auto text-center opacity-95 overflow-y-auto max-h-screen transition-all duration-700 ease-in-out overflow-hidden">
 
-
-                {selectedYear ? (
-                    <ul className="transition-all duration-500 ease-in-out">
-                        {CarData[selectedMake][selectedModel][selectedYearRange].trims.map((trim, index) => (
-                            <li key={index} onClick={() => handleClickTrim(trim)} className="default-hover">
-                                {trim}
-                            </li>
-                        ))}
-                    </ul>
-                ) : selectedYearRange ? (
-                    <ul className="transition-all duration-500 ease-in-out">
-                        {CarData[selectedMake][selectedModel][selectedYearRange].years.map((year, index) => (
-                            <li key={index} onClick={() => handleClickYear(year)} className="default-hover">
-                                {year}
-                            </li>
-                        ))}
-                    </ul>
-                ) : selectedModel ? (
-                    <ul className="transition-all duration-500 ease-in-out">
-                        {Object.keys(CarData[selectedMake][selectedModel]).map((yearRange, index) => (
-                            <li key={index} onClick={() => handleClickYearRange(yearRange)} className="default-hover">
-                                {yearRange}
-                            </li>
-                        ))}
-                    </ul>
-                ) : selectedMake ? (
-                    <ul className="transition-all duration-500 ease-in-out">
-                        {Object.keys(CarData[selectedMake]).map((model, index) => (
-                            <li key={index} onClick={() => handleClickModel(model)} className="default-hover">
-                                {model}
-                            </li>
-                        ))}
-                    </ul>
-                ) : (
-                    <ul className="flex flex-col transition-all duration-500 ease-in-out">
-                        {Object.keys(CarData).map((make, index) => (
-                            <li key={index} onClick={() => handleClickMake(make)} className="default-hover">
-                                {make}
-                            </li>
-                        ))}
-                    </ul>
-                )}
+                    {selectedYear ? (
+                        <ul className="transition-all duration-500 ease-in-out">
+                            {CarData[selectedMake][selectedModel][selectedYearRange].trims.map((trim, index) => (
+                                <li key={index} onClick={() => handleClickTrim(trim)} className="default-hover">
+                                    {trim}
+                                </li>
+                            ))}
+                        </ul>
+                    ) : selectedYearRange ? (
+                        <ul className="transition-all duration-500 ease-in-out">
+                            {CarData[selectedMake][selectedModel][selectedYearRange].years.map((year, index) => (
+                                <li key={index} onClick={() => handleClickYear(year)} className="default-hover">
+                                    {year}
+                                </li>
+                            ))}
+                        </ul>
+                    ) : selectedModel ? (
+                        <ul className="transition-all duration-500 ease-in-out">
+                            {Object.keys(CarData[selectedMake][selectedModel]).map((yearRange, index) => (
+                                <li key={index} onClick={() => handleClickYearRange(yearRange)} className="default-hover">
+                                    {yearRange}
+                                </li>
+                            ))}
+                        </ul>
+                    ) : selectedMake ? (
+                        <ul className="transition-all duration-500 ease-in-out">
+                            {Object.keys(CarData[selectedMake]).map((model, index) => (
+                                <li key={index} onClick={() => handleClickModel(model)} className="default-hover">
+                                    {model}
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <ul className="flex flex-col transition-all duration-500 ease-in-out">
+                            {Object.keys(CarData).map((make, index) => (
+                                <li key={index} onClick={() => handleClickMake(make)} className="default-hover">
+                                    {make}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
             </div>
         </div>
     );

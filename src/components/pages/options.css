@@ -12,3 +12,21 @@
     text-decoration: underline;
     color: #45f3ff;
 }
+
+.wrapper-div {
+    overflow: hidden;
+    max-height: 500px;
+    /* Set this to your desired height */
+    width: 260px;
+}
+
+.active-list {
+    overflow-y: auto;
+    max-height: 500px;
+    height: 400px;
+    /* Set this to your desired height */
+    margin-right: -17px;
+    /* Hide scrollbar by setting negative margin */
+    padding-right: 17px;
+    /* Add padding to compensate for negative margin */
+}
