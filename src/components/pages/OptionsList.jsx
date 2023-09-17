@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import CarData from './CarData.jsx';
+import CarData from './CarList.jsx';
 import './options.css';
 
 const OptionsList = () => {
