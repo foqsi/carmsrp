@@ -6,7 +6,7 @@
     font-variant: small-caps;
     font-size: xx-large;
     letter-spacing: 0.4vmin;
-    transition: opacity 400ms ease, color 0.5s;
+    transition: opacity 400ms ease, color 0.2s;
 }
 
 .default-hover:hover {
