@@ -1,5 +1,7 @@
 # https://allcardb.com
 
+This project is a front end expirementation project that I started over a year ago. I started with just basic html and css. Then, I learn js and change the code to js. I am not learning react and changing it to a react project. The project will utilize a database I have found or created to display details of a vehicle the user navigates to.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
