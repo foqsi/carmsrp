@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Breadcrumb from './Breadcrumb.jsx';
+import DisplayResults from './DisplayResults.jsx';
 import '../components/options.css';
 import ApiKey from '../utils/apikey.js';
 
 const OptionsList = () => {
+    const [additionalInfo, setAdditionalInfo] = useState(null);
     const [currentWindow, setCurrentWindow] = useState('Make');
     const [selectedMake, setSelectedMake] = useState(null);
     const [selectedModel, setSelectedModel] = useState(null);
@@ -163,14 +165,16 @@ const OptionsList = () => {
         fetch(url, { headers })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                setAdditionalInfo(data);
             })
+            .catch(err => console.error(err));
     }, [selectedTrim]);
 
+    const allSelected = selectedMake && selectedModel && selectedYear && selectedTrim;
 
     return (
         <>
-            <div className=" bg-slate-200 text-black p-8 rounded-lg shadow-lg w-auto h-[800px] text-center opacity-95 transition-all duration-700 ease-in-out overflow-y-hidden">
+            <div className="bg-slate-200 text-black p-8 rounded-lg shadow-lg w-auto h-[800px] text-center opacity-95 transition-all duration-700 ease-in-out overflow-y-hidden">
                 <Breadcrumb
                     currentWindow={currentWindow}
                     handleBreadCrumbClick={handleBreadCrumbClick}
@@ -181,40 +185,50 @@ const OptionsList = () => {
 
                 <div className='active-list-wrapper'>
                     <div className="active-list bg-white text-black md:p-5 rounded-lg shadow-lg w-auto text-center opacity-95 transition-all duration-700 mease-in-out">
-
-                        {/* List items */}
                         <>
-                            {
+                            {allSelected ? (
+                                <DisplayResults
+                                    selectedMake={selectedMake}
+                                    selectedModel={selectedModel}
+                                    selectedYear={selectedYear}
+                                    selectedTrim={selectedTrim}
+                                    additionalInfo={additionalInfo}
+                                />
+                            ) : (
                                 selectedYear ? (
                                     trims.map((trim, index) => (
                                         <div key={index} onClick={() => { setSelectedTrim(trim); setCurrentWindow(selectedYear); }} className='default-hover'>
                                             {trim}
                                         </div>
                                     ))
-                                ) : selectedModel ? (
-                                    years.map((year, index) => (
-                                        <div key={index} onClick={() => { setSelectedYear(year); setCurrentWindow(selectedModel); }} className='default-hover'>
-                                            {year}
-                                        </div>
-                                    ))
-                                ) : selectedMake ? (
-                                    models.map((model, index) => (
-                                        <div key={index} onClick={() => { setSelectedModel(model); setCurrentWindow(selectedMake); }} className='default-hover'>
-                                            {model}
-                                        </div>
-                                    ))
                                 ) : (
-                                    makes.map((make, index) => (
-                                        <div key={index} onClick={() => { setSelectedMake(make.name); setCurrentWindow('Make'); }} className='default-hover'>
-                                            {make.name}
-                                        </div>
-                                    ))
+                                    selectedModel ? (
+                                        years.map((year, index) => (
+                                            <div key={index} onClick={() => { setSelectedYear(year); setCurrentWindow(selectedModel); }} className='default-hover'>
+                                                {year}
+                                            </div>
+                                        ))
+                                    ) : (
+                                        selectedMake ? (
+                                            models.map((model, index) => (
+                                                <div key={index} onClick={() => { setSelectedModel(model); setCurrentWindow(selectedMake); }} className='default-hover'>
+                                                    {model}
+                                                </div>
+                                            ))
+                                        ) : (
+                                            makes.map((make, index) => (
+                                                <div key={index} onClick={() => { setSelectedMake(make.name); setCurrentWindow('Make'); }} className='default-hover'>
+                                                    {make.name}
+                                                </div>
+                                            ))
+                                        )
+                                    )
                                 )
-                            }
+                            )}
                         </>
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     );
 };
