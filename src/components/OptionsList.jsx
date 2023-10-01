@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Breadcrumb from '../components/Breadcrumb.jsx';
+import Breadcrumb from './Breadcrumb.jsx';
 import '../components/options.css';
 import ApiKey from '../utils/apikey.js';
 
