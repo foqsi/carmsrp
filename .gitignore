@@ -24,4 +24,5 @@ yarn-error.log*
 
 /.vscode
 
-src/components/pages/apikey.js
+
+src/utils/apikey.js
