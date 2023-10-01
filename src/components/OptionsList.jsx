@@ -5,16 +5,17 @@ import '../components/options.css';
 import ApiKey from '../utils/apikey.js';
 
 const OptionsList = () => {
-    const [additionalInfo, setAdditionalInfo] = useState(null);
     const [currentWindow, setCurrentWindow] = useState('Make');
     const [selectedMake, setSelectedMake] = useState(null);
     const [selectedModel, setSelectedModel] = useState(null);
-    const [selectedTrim, setSelectedTrim] = useState(null);
     const [selectedYear, setSelectedYear] = useState(null);
+    const [selectedTrim, setSelectedTrim] = useState(null);
+    const [selectedTrimDetail, setSelectedTrimDetail] = useState(null);
     const [makes, setMakes] = useState([]);
     const [models, setModels] = useState([]);
     const [years, setYears] = useState([]);
     const [trims, setTrims] = useState([]);
+    const [trimDetails, setTrimDetails] = useState([]);
 
     const handleBreadCrumbClick = (level) => {
         switch (level) {
@@ -23,21 +24,29 @@ const OptionsList = () => {
                 setSelectedModel(null);
                 setSelectedYear(null);
                 setSelectedTrim(null);
+                setSelectedTrimDetail(null);
                 setCurrentWindow('Make');
                 break;
             case 'Model':
                 setSelectedModel(null);
                 setSelectedYear(null);
                 setSelectedTrim(null);
-                setCurrentWindow(selectedMake);
+                setSelectedTrimDetail(null);
+                setCurrentWindow('Make');
                 break;
             case 'Year':
                 setSelectedYear(null);
                 setSelectedTrim(null);
-                setCurrentWindow(selectedModel);
+                setSelectedTrimDetail(null);
+                setCurrentWindow(selectedMake);
                 break;
             case 'Trim':
                 setSelectedTrim(null);
+                setSelectedTrimDetail(null);
+                setCurrentWindow(selectedModel);
+                break;
+            case 'Details':
+                setSelectedTrimDetail(null);
                 setCurrentWindow(selectedYear);
                 break;
             default:
@@ -156,7 +165,7 @@ const OptionsList = () => {
     // GET CAR DATA
     useEffect(() => {
         if (!selectedTrim) return;
-        let url = ``;
+        let url = `https://car-api2.p.rapidapi.com/api/trims?direction=asc&sort=id&year=${selectedYear}&model=${selectedModel}&trim=${selectedTrim}&verbose=yes&make=${selectedMake}`;
         const headers = {
             'X-RapidAPI-Key': ApiKey,
             'X-RapidAPI-Host': 'car-api2.p.rapidapi.com'
@@ -165,12 +174,17 @@ const OptionsList = () => {
         fetch(url, { headers })
             .then(res => res.json())
             .then(data => {
-                setAdditionalInfo(data);
+                const uniqueTrimDetail = new Set();
+                data.data.forEach(item => {
+                    uniqueTrimDetail.add(item.description);
+                });
+                const uniqueTrimDetailArray = Array.from(uniqueTrimDetail);
+                setTrimDetails(uniqueTrimDetailArray);
+                console.log(uniqueTrimDetailArray);
             })
-            .catch(err => console.error(err));
     }, [selectedTrim]);
 
-    const allSelected = selectedMake && selectedModel && selectedYear && selectedTrim;
+    const allSelected = selectedMake && selectedModel && selectedYear && selectedTrim && selectedTrimDetail;
 
     return (
         <>
@@ -181,6 +195,7 @@ const OptionsList = () => {
                     selectedMake={selectedMake}
                     selectedModel={selectedModel}
                     selectedYear={selectedYear}
+                    selectedTrim={selectedTrim}
                 />
 
                 <div className='active-list-wrapper'>
@@ -192,35 +207,43 @@ const OptionsList = () => {
                                     selectedModel={selectedModel}
                                     selectedYear={selectedYear}
                                     selectedTrim={selectedTrim}
-                                    additionalInfo={additionalInfo}
+                                    selectedTrimDetail={selectedTrimDetail}
                                 />
                             ) : (
-                                selectedYear ? (
-                                    trims.map((trim, index) => (
-                                        <div key={index} onClick={() => { setSelectedTrim(trim); setCurrentWindow(selectedYear); }} className='default-hover'>
-                                            {trim}
+                                selectedTrim ? (
+                                    trimDetails.map((trimDetail, index) => (
+                                        <div key={index} onClick={() => { setSelectedTrimDetail(trimDetail); setCurrentWindow('Detail'); }} className='default-hover'>
+                                            {trimDetail}
                                         </div>
                                     ))
                                 ) : (
-                                    selectedModel ? (
-                                        years.map((year, index) => (
-                                            <div key={index} onClick={() => { setSelectedYear(year); setCurrentWindow(selectedModel); }} className='default-hover'>
-                                                {year}
+                                    selectedYear ? (
+                                        trims.map((trim, index) => (
+                                            <div key={index} onClick={() => { setSelectedTrim(trim); setCurrentWindow(selectedYear); }} className='default-hover'>
+                                                {trim}
                                             </div>
                                         ))
                                     ) : (
-                                        selectedMake ? (
-                                            models.map((model, index) => (
-                                                <div key={index} onClick={() => { setSelectedModel(model); setCurrentWindow(selectedMake); }} className='default-hover'>
-                                                    {model}
+                                        selectedModel ? (
+                                            years.map((year, index) => (
+                                                <div key={index} onClick={() => { setSelectedYear(year); setCurrentWindow(selectedModel); }} className='default-hover'>
+                                                    {year}
                                                 </div>
                                             ))
                                         ) : (
-                                            makes.map((make, index) => (
-                                                <div key={index} onClick={() => { setSelectedMake(make.name); setCurrentWindow('Make'); }} className='default-hover'>
-                                                    {make.name}
-                                                </div>
-                                            ))
+                                            selectedMake ? (
+                                                models.map((model, index) => (
+                                                    <div key={index} onClick={() => { setSelectedModel(model); setCurrentWindow(selectedMake); }} className='default-hover'>
+                                                        {model}
+                                                    </div>
+                                                ))
+                                            ) : (
+                                                makes.map((make, index) => (
+                                                    <div key={index} onClick={() => { setSelectedMake(make.name); setCurrentWindow('Make'); }} className='default-hover'>
+                                                        {make.name}
+                                                    </div>
+                                                ))
+                                            )
                                         )
                                     )
                                 )

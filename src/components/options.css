@@ -15,7 +15,7 @@
 }
 
 .breadcrumb {
-    font-size: 28px;
+    font-size: fit-content;
 }
 
 .active-list {
