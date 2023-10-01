@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Breadcrumb = ({ currentWindow, handleBreadCrumbClick, selectedMake, selectedModel, selectedYear }) => {
+const Breadcrumb = ({ currentWindow, handleBreadCrumbClick, selectedMake, selectedModel, selectedYear, selectedTrim }) => {
     return (
         <div className="breadcrumb">
             <span onClick={() => handleBreadCrumbClick('Make')} className={currentWindow === 'Make' ? '' : 'cursor-pointer hover:underline hover:text-blue-400'}>Make</span>
@@ -21,10 +21,18 @@ const Breadcrumb = ({ currentWindow, handleBreadCrumbClick, selectedMake, select
                 </span>
             )}
             {selectedYear && (
-                <span>
+                <span onClick={() => handleBreadCrumbClick('Trim')}>
                     {' > '}
                     <span className={currentWindow === selectedYear ? '' : 'cursor-pointer hover:underline hover:text-blue-400'}>
                         {selectedYear}
+                    </span>
+                </span>
+            )}
+            {selectedTrim && (
+                <span>
+                    {' > '}
+                    <span className={currentWindow === selectedTrim ? '' : 'cursor-pointer hover:underline hover:text-blue-400'}>
+                        {selectedTrim}
                     </span>
                 </span>
             )}
