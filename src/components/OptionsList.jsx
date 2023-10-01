@@ -54,21 +54,6 @@ const OptionsList = () => {
         }
     };
 
-    // HANDLE SCROLL
-    useEffect(() => {
-        const handleScroll = (e) => {
-            const scrollY = e.target.scrollTop;
-            e.target.style.backgroundPosition = `0 ${scrollY}px`;
-        };
-
-        const listElement = document.querySelector('.active-list');
-        listElement.addEventListener('scroll', handleScroll);
-
-        return () => {
-            listElement.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
     // GET MAKES
     useEffect(() => {
         const url = 'https://car-api2.p.rapidapi.com/api/makes?direction=asc&sort=name';
@@ -188,7 +173,7 @@ const OptionsList = () => {
 
     return (
         <>
-            <div className="bg-slate-200 text-black p-8 rounded-lg shadow-lg w-auto h-[800px] text-center opacity-95 transition-all duration-700 ease-in-out overflow-y-hidden">
+            <div className="bg-slate-200 text-black md:text-xl p-4 md:p-8 rounded-lg shadow-lg w-full md:w-[700px] h-full md:h-[800px] text-center opacity-95 transition-all duration-700 ease-in-out overflow-y-hidden flex flex-col justify-between">
                 <Breadcrumb
                     currentWindow={currentWindow}
                     handleBreadCrumbClick={handleBreadCrumbClick}
@@ -198,8 +183,9 @@ const OptionsList = () => {
                     selectedTrim={selectedTrim}
                 />
 
-                <div className='active-list-wrapper'>
-                    <div className="active-list bg-white text-black md:p-5 rounded-lg shadow-lg w-auto text-center opacity-95 transition-all duration-700 mease-in-out">
+                <div className='overflow-hidden flex-1 flex items-center justify-center'>
+                    <div className="overflow-hidden overflow-y-auto hide-scrollbar bg-white text-black p-2 md:p-6 m-1 md:m-6 rounded-lg shadow-lg w-full md:w-[600px] h-[60vh] md:h-[700px] text-center opacity-95 transition-all duration-700 ease-in-out">
+                        {/* Content */}
                         <>
                             {allSelected ? (
                                 <DisplayResults

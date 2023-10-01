@@ -14,25 +14,17 @@
     color: #1bd6e4;
 }
 
-.breadcrumb {
-    font-size: fit-content;
+p {
+    border-bottom-width: 2px;
 }
 
-.active-list {
-    overflow-y: auto;
-    height: 700px;
-    margin-right: -17px;
-    padding-right: 17px;
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
 }
 
-.active-list-wrapper {
-    overflow: hidden;
-    width: 400px;
-}
-
-@media only screen and (max-width: 768px) {
-    .active-list {
-        margin-right: 0;
-        padding-right: 0;
-    }
+.hide-scrollbar {
+    /* IE and Edge */
+    -ms-overflow-style: none;
+    /* Firefox */
+    scrollbar-width: none;
 }
