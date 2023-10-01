@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import OptionsList from './OptionsList';
+import OptionsList from '../components/OptionsList.jsx';
 
 const Main = () => {
     const [showOptions, setShowOptions] = useState(false);
