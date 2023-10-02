@@ -16,6 +16,75 @@ const OptionsList = () => {
     const [years, setYears] = useState([]);
     const [trims, setTrims] = useState([]);
     const [trimDetails, setTrimDetails] = useState([]);
+    const [selectedIds, setSelectedIds] = useState([]);
+    const [trimDetailToIdMap, setTrimDetailToIdMap] = useState({});
+
+    const [make_Model_Trim_Body, setMake_Model_Trim_Body] = useState({
+        cargo_capacity: null,
+        curb_weight: null,
+        doors: null,
+        front_track: null,
+        gross_weight: null,
+        ground_clearance: null,
+        height: null,
+        id: null,
+        length: null,
+        make_model_trim_id: null,
+        max_cargo_capacity: null,
+        max_payload: null,
+        max_towing_capacity: null,
+        rear_track: null,
+        seats: null,
+        type: null,
+        wheel_base: null,
+        width: null
+    });
+
+    const [make_Model_Trim_Engine, setMake_Model_Trim_Engine] = useState({
+        cam_type: null,
+        cylinders: null,
+        drive_type: null,
+        engine_type: null,
+        fuel_type: null,
+        horsepower_hp: null,
+        horsepower_rpm: null,
+        id: null,
+        make_model_trim_id: null,
+        size: null,
+        torque_ft_lbs: null,
+        torque_rpm: null,
+        transmission: null,
+        valve_timing: null,
+        valves: null
+    });
+
+    const [make_Model_Trim_Exterior_Colors, setMake_Model_Trim_Exterior_Colors] = useState({});
+    const [make_Model_Trim_Interior_Colors, setMake_Model_Trim_Interior_Colors] = useState({});
+
+    const [make_Model_Trim_Mileage, setMake_Model_Trim_Mileage] = useState({
+        battery_capacity_electric: null,
+        combined_mpg: null,
+        epa_city_mpg: null,
+        epa_city_mpg_electric: null,
+        epa_combined_mpg_electric: null,
+        epa_highway_mpg: null,
+        epa_highway_mpg_electric: null,
+        epa_kwh_100_mi_electric: null,
+        epa_time_to_charge_hr_240v_electric: null,
+        fuel_tank_capacity: null,
+        id: null,
+        make_model_trim_id: null,
+        range_city: null,
+        range_electric: null,
+        range_highway: null
+    });
+
+    const [other_Vehicle_Details, setOther_Vehicle_Details] = useState({
+        invoice: null,
+        msrp: null,
+        vehicle_name: null
+    });
+
 
     const handleBreadCrumbClick = (level) => {
         switch (level) {
@@ -147,7 +216,7 @@ const OptionsList = () => {
             })
     }, [selectedYear]);
 
-    // GET CAR DATA
+    // GET TRIM DETAILS && VEHICLE IDS
     useEffect(() => {
         if (!selectedTrim) return;
         let url = `https://car-api2.p.rapidapi.com/api/trims?direction=asc&sort=id&year=${selectedYear}&model=${selectedModel}&trim=${selectedTrim}&verbose=yes&make=${selectedMake}`;
@@ -160,20 +229,73 @@ const OptionsList = () => {
             .then(res => res.json())
             .then(data => {
                 const uniqueTrimDetail = new Set();
+                const uniqueIds = new Set();
+                const newTrimDetailToIdMap = {};
+
                 data.data.forEach(item => {
                     uniqueTrimDetail.add(item.description);
+                    uniqueIds.add(item.id);
+                    newTrimDetailToIdMap[item.description] = item.id;
                 });
+
                 const uniqueTrimDetailArray = Array.from(uniqueTrimDetail);
+                const uniqueIdsArray = Array.from(uniqueIds);
+
                 setTrimDetails(uniqueTrimDetailArray);
-                console.log(uniqueTrimDetailArray);
+                setSelectedIds(uniqueIdsArray);
+                setTrimDetailToIdMap(newTrimDetailToIdMap);
             })
     }, [selectedTrim]);
+
+    // GET VEHICLE INFORMATION
+    useEffect(() => {
+        if (!selectedIds) return;
+
+        let url = `https://car-api2.p.rapidapi.com/api/trims/${selectedIds}`;
+        const headers = {
+            'X-RapidAPI-Key': ApiKey,
+            'X-RapidAPI-Host': 'car-api2.p.rapidapi.com'
+        };
+
+        fetch(url, { headers })
+            .then(res => res.json())
+            .then(data => {
+                setOther_Vehicle_Details({
+                    msrp: data.msrp,
+                    name: data.name,
+                    invoice: data.invoice
+                });
+                setMake_Model_Trim_Body({
+                    cargo_capacity: data.make_model_trim_body.cargo_capacity,
+                    curb_weight: data.make_model_trim_body.curb_weight,
+                    doors: data.make_model_trim_body.doors,
+                    front_track: data.make_model_trim_body.front_track,
+                    gross_weight: data.make_model_trim_body.gross_weight,
+                    ground_clearance: data.make_model_trim_body.ground_clearance,
+                    height: data.make_model_trim_body.height,
+                    id: data.make_model_trim_body.id,
+                    length: data.make_model_trim_body.length,
+                    make_model_trim_id: data.make_model_trim_body.make_model_trim_id,
+                    max_cargo_capacity: data.make_model_trim_body.max_cargo_capacity,
+                    max_payload: data.make_model_trim_body.max_payload,
+                    max_towing_capacity: data.make_model_trim_body.max_towing_capacity,
+                    rear_track: data.make_model_trim_body.rear_track,
+                    seats: data.make_model_trim_body.seats,
+                    type: data.make_model_trim_body.type,
+                    wheel_base: data.make_model_trim_body.wheel_base,
+                    width: data.make_model_trim_body.width
+                });
+            })
+            .catch(err => console.error(err));
+    }, [selectedIds]);
+
+
 
     const allSelected = selectedMake && selectedModel && selectedYear && selectedTrim && selectedTrimDetail;
 
     return (
         <>
-            <div className="bg-slate-200 text-black md:text-xl p-4 md:p-8 rounded-lg shadow-lg w-full md:w-[700px] h-full md:h-[800px] text-center opacity-95 transition-all duration-700 ease-in-out overflow-y-hidden flex flex-col justify-between">
+            <div className="bg-slate-200 text-black p-4 md:p-8 rounded-lg shadow-lg w-full md:w-[700px] h-full md:h-[800px] text-center opacity-95 transition-all duration-700 ease-in-out overflow-y-hidden flex flex-col justify-between">
                 <Breadcrumb
                     currentWindow={currentWindow}
                     handleBreadCrumbClick={handleBreadCrumbClick}
@@ -194,11 +316,17 @@ const OptionsList = () => {
                                     selectedYear={selectedYear}
                                     selectedTrim={selectedTrim}
                                     selectedTrimDetail={selectedTrimDetail}
+                                    otherVehicleDetails={other_Vehicle_Details}
                                 />
+
                             ) : (
                                 selectedTrim ? (
                                     trimDetails.map((trimDetail, index) => (
-                                        <div key={index} onClick={() => { setSelectedTrimDetail(trimDetail); setCurrentWindow('Detail'); }} className='default-hover'>
+                                        <div key={index} onClick={() => {
+                                            setSelectedTrimDetail(trimDetail);
+                                            setSelectedIds(trimDetailToIdMap[trimDetail]);
+                                            setCurrentWindow('Detail');
+                                        }} className='default-hover border border-gray'>
                                             {trimDetail}
                                         </div>
                                     ))
