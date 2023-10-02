@@ -252,6 +252,9 @@ const OptionsList = () => {
         if (!selectedIds) return;
 
         let url = `https://car-api2.p.rapidapi.com/api/trims/${selectedIds}`;
+        let extColor = `https://car-api2.p.rapidapi.com/api/exterior-colors?direction=asc&make_model_trim_id=142&sort=id&verbose=yes`;
+        let intColor = `https://car-api2.p.rapidapi.com/api/interior-colors?direction=asc&make_model_trim_id=142&sort=id&verbose=yes`;
+
         const headers = {
             'X-RapidAPI-Key': ApiKey,
             'X-RapidAPI-Host': 'car-api2.p.rapidapi.com'
@@ -265,28 +268,95 @@ const OptionsList = () => {
                     name: data.name,
                     invoice: data.invoice
                 });
-                setMake_Model_Trim_Body({
-                    cargo_capacity: data.make_model_trim_body.cargo_capacity,
-                    curb_weight: data.make_model_trim_body.curb_weight,
-                    doors: data.make_model_trim_body.doors,
-                    front_track: data.make_model_trim_body.front_track,
-                    gross_weight: data.make_model_trim_body.gross_weight,
-                    ground_clearance: data.make_model_trim_body.ground_clearance,
-                    height: data.make_model_trim_body.height,
-                    id: data.make_model_trim_body.id,
-                    length: data.make_model_trim_body.length,
-                    make_model_trim_id: data.make_model_trim_body.make_model_trim_id,
-                    max_cargo_capacity: data.make_model_trim_body.max_cargo_capacity,
-                    max_payload: data.make_model_trim_body.max_payload,
-                    max_towing_capacity: data.make_model_trim_body.max_towing_capacity,
-                    rear_track: data.make_model_trim_body.rear_track,
-                    seats: data.make_model_trim_body.seats,
-                    type: data.make_model_trim_body.type,
-                    wheel_base: data.make_model_trim_body.wheel_base,
-                    width: data.make_model_trim_body.width
-                });
+
+                if (data && data.make_model_trim_body) {
+                    setMake_Model_Trim_Body({
+                        id: data.make_model_trim_body.id,
+                        make_model_trim_id: data.make_model_trim_body.make_model_trim_id,
+                        curb_weight: data.make_model_trim_body.curb_weight,
+                        gross_weight: data.make_model_trim_body.gross_weight,
+                        ground_clearance: data.make_model_trim_body.ground_clearance,
+                        wheel_base: data.make_model_trim_body.wheel_base,
+                        height: data.make_model_trim_body.height,
+                        length: data.make_model_trim_body.length,
+                        width: data.make_model_trim_body.width,
+                        type: data.make_model_trim_body.type,
+                        doors: data.make_model_trim_body.doors,
+                        seats: data.make_model_trim_body.seats,
+                        cargo_capacity: data.make_model_trim_body.cargo_capacity,
+                        front_track: data.make_model_trim_body.front_track,
+                        max_cargo_capacity: data.make_model_trim_body.max_cargo_capacity,
+                        max_payload: data.make_model_trim_body.max_payload,
+                        max_towing_capacity: data.make_model_trim_body.max_towing_capacity,
+                        rear_track: data.make_model_trim_body.rear_track,
+                    });
+                }
+
+                if (data && data.make_model_trim_engine) {
+                    setMake_Model_Trim_Engine({
+                        id: data.make_model_trim_engine.id,
+                        make_model_trim_id: data.make_model_trim_engine.make_model_trim_id,
+                        size: data.make_model_trim_engine.size,
+                        drive_type: data.make_model_trim_engine.drive_type,
+                        engine_type: data.make_model_trim_engine.engine_type,
+                        fuel_type: data.make_model_trim_engine.fuel_type,
+                        horsepower_hp: data.make_model_trim_engine.horsepower_hp,
+                        horsepower_rpm: data.make_model_trim_engine.horsepower_rpm,
+                        torque_ft_lbs: data.make_model_trim_engine.torque_ft_lbs,
+                        torque_rpm: data.make_model_trim_engine.torque_rpm,
+                        cylinders: data.make_model_trim_engine.cylinders,
+                        cam_type: data.make_model_trim_engine.cam_type,
+                        valves: data.make_model_trim_engine.valves,
+                        valve_timing: data.make_model_trim_engine.valve_timing,
+                    });
+                }
+
+                if (data && data.make_model_trim_mileage) {
+                    setMake_Model_Trim_Mileage({
+                        id: data.make_model_trim_mileage.id,
+                        make_model_trim_id: data.make_model_trim_mileage.make_model_trim_id,
+                        combined_mpg: data.make_model_trim_mileage.combined_mpg,
+                        epa_city_mpg: data.make_model_trim_mileage.epa_city_mpg,
+                        fuel_tank_capacity: data.make_model_trim_mileage.fuel_tank_capacity,
+                        range_city: data.make_model_trim_mileage.range_city,
+                        range_highway: data.make_model_trim_mileage.range_highway,
+                        epa_highway_mpg: data.make_model_trim_mileage.epa_highway_mpg,
+                        battery_capacity_electric: data.make_model_trim_mileage.battery_capacity_electric,
+                        epa_city_mpg_electric: data.make_model_trim_mileage.epa_city_mpg_electric,
+                        epa_combined_mpg_electric: data.make_model_trim_mileage.epa_combined_mpg_electric,
+                        epa_highway_mpg_electric: data.make_model_trim_mileage.epa_highway_mpg_electric,
+                        epa_kwh_100_mi_electric: data.make_model_trim_mileage.epa_kwh_100_mi_electric,
+                        epa_time_to_charge_hr_240v_electric: data.make_model_trim_mileage.epa_time_to_charge_hr_240v_electric,
+                        range_electric: data.make_model_trim_mileage.range_electric,
+
+                    });
+                }
             })
-            .catch(err => console.error(err));
+            .then(() => {
+                fetch(extColor, { headers })
+                    .then(res => res.json())
+                    .then(data => {
+
+                        const uniqueExtColors = new Set();
+                        data.data.forEach(item => {
+                            uniqueExtColors.add(item.name);
+                        });
+                        const uniqueExtColorsArray = Array.from(uniqueExtColors);
+                        setMake_Model_Trim_Exterior_Colors(uniqueExtColorsArray);
+                    })
+            })
+            .then(() => {
+                fetch(intColor, { headers })
+                    .then(res => res.json())
+                    .then(data => {
+                        const uniqueIntColors = new Set();
+                        data.data.forEach(item => {
+                            uniqueIntColors.add(item.name);
+                        });
+                        const uniqueIntColorsArray = Array.from(uniqueIntColors);
+                        setMake_Model_Trim_Interior_Colors(uniqueIntColorsArray);
+                    })
+            })
     }, [selectedIds]);
 
 
@@ -317,6 +387,11 @@ const OptionsList = () => {
                                     selectedTrim={selectedTrim}
                                     selectedTrimDetail={selectedTrimDetail}
                                     otherVehicleDetails={other_Vehicle_Details}
+                                    make_Model_Trim_Body={make_Model_Trim_Body}
+                                    make_Model_Trim_Engine={make_Model_Trim_Engine}
+                                    make_Model_Trim_Mileage={make_Model_Trim_Mileage}
+                                    make_Model_Trim_Exterior_Colors={make_Model_Trim_Exterior_Colors}
+                                    make_Model_Trim_Interior_Colors={make_Model_Trim_Interior_Colors}
                                 />
 
                             ) : (

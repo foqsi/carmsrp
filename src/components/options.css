@@ -18,6 +18,12 @@ p {
     border-bottom-width: 2px;
 }
 
+h1 {
+    border-bottom-width: 2px;
+    border-top-width: 2px;
+    border-color: black;
+}
+
 .hide-scrollbar::-webkit-scrollbar {
     display: none;
 }
