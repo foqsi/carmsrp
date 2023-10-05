@@ -1,0 +1,77 @@
+export const data = [
+
+    //Placeholder data for TopCars.jsx
+    {
+        id: 1,
+        name: 'Car Name 1',
+        title: 'Car Title 1',
+        img: 'https://via.placeholder.com/150',
+        description: 'Description for Car 1',
+        quote: 'Quote for Car 1',
+    },
+    {
+        id: 2,
+        name: 'Car Name 2',
+        title: 'Car Title 2',
+        img: 'https://via.placeholder.com/250',
+        description: 'Description for Car 2',
+        quote: 'Quote for Car 2',
+    },
+    {
+        id: 3,
+        name: 'Car Name 3',
+        title: 'Car Title 3',
+        img: 'https://via.placeholder.com/350',
+        description: 'Description for Car 3',
+        quote: 'Quote for Car 3',
+    },
+    {
+        id: 1,
+        name: 'Car Name 1',
+        title: 'Car Title 1',
+        img: 'https://via.placeholder.com/150',
+        description: 'Description for Car 1',
+        quote: 'Quote for Car 1',
+    },
+    {
+        id: 2,
+        name: 'Car Name 2',
+        title: 'Car Title 2',
+        img: 'https://via.placeholder.com/250',
+        description: 'Description for Car 2',
+        quote: 'Quote for Car 2',
+    },
+    {
+        id: 3,
+        name: 'Car Name 3',
+        title: 'Car Title 3',
+        img: 'https://via.placeholder.com/350',
+        description: 'Description for Car 3',
+        quote: 'Quote for Car 3',
+    },
+    {
+        id: 1,
+        name: 'Car Name 1',
+        title: 'Car Title 1',
+        img: 'https://via.placeholder.com/150',
+        description: 'Description for Car 1',
+        quote: 'Quote for Car 1',
+    },
+    {
+        id: 2,
+        name: 'Car Name 2',
+        title: 'Car Title 2',
+        img: 'https://via.placeholder.com/250',
+        description: 'Description for Car 2',
+        quote: 'Quote for Car 2',
+    },
+    {
+        id: 3,
+        name: 'Car Name 3',
+        title: 'Car Title 3',
+        img: 'https://via.placeholder.com/350',
+        description: 'Description for Car 3',
+        quote: 'Quote for Car 3',
+    },
+    // ... add more cars
+];

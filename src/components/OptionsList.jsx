@@ -3,7 +3,7 @@ import Breadcrumb from './Breadcrumb.jsx';
 import DisplayResults from './DisplayResults.jsx';
 import * as ApiService from '../services/ApiService.js';
 import useVehicleDetails from './vehicleDetails.js';
-import '../components/options.css';
+import '../index.js';
 
 const OptionsList = () => {
     const [currentWindow, setCurrentWindow] = useState('Make');
