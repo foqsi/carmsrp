@@ -1,5 +1,5 @@
 import Main from './pages/Main.jsx';
-import Navbar from './components/NavBar.jsx';
+import Navbar from './components/navbar/NavBar.jsx';
 import CarOfTheDay from './pages/CarOfTheDay.jsx';
 import RandomCar from './pages/RandomCar.jsx';
 import TopCars from './pages/TopCars.jsx';
