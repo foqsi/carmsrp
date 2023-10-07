@@ -1,6 +1,9 @@
 import { useState } from 'react';
 
 const useVehicleDetails = () => {
+    const [makeModelTrimExteriorColors, setMakeModelTrimExteriorColors] = useState({});
+    const [makeModelTrimInteriorColors, setMakeModelTrimInteriorColors] = useState({});
+
     const [makeModelTrimBody, setMakeModelTrimBody] = useState({
         cargo_capacity: null,
         curb_weight: null,
@@ -39,9 +42,6 @@ const useVehicleDetails = () => {
         valve_timing: null,
         valves: null
     });
-
-    const [makeModelTrimExteriorColors, setMakeModelTrimExteriorColors] = useState({});
-    const [makeModelTrimInteriorColors, setMakeModelTrimInteriorColors] = useState({});
 
     const [makeModelTrimMileage, setMakeModelTrimMileage] = useState({
         battery_capacity_electric: null,
