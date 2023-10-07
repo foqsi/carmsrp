@@ -1,1 +1,3 @@
-export const isLoggedIn = false; // Or false, depending on your needs
+// Desc: Authentication for the app
+
+export const isLoggedIn = false;
