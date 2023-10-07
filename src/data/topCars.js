@@ -26,7 +26,7 @@ export const data = [
         quote: 'Quote for Car 3',
     },
     {
-        id: 1,
+        id: 4,
         name: 'Car Name 1',
         title: 'Car Title 1',
         img: 'https://via.placeholder.com/150',
@@ -34,7 +34,7 @@ export const data = [
         quote: 'Quote for Car 1',
     },
     {
-        id: 2,
+        id: 5,
         name: 'Car Name 2',
         title: 'Car Title 2',
         img: 'https://via.placeholder.com/250',
@@ -42,7 +42,7 @@ export const data = [
         quote: 'Quote for Car 2',
     },
     {
-        id: 3,
+        id: 6,
         name: 'Car Name 3',
         title: 'Car Title 3',
         img: 'https://via.placeholder.com/350',
@@ -50,7 +50,7 @@ export const data = [
         quote: 'Quote for Car 3',
     },
     {
-        id: 1,
+        id: 7,
         name: 'Car Name 1',
         title: 'Car Title 1',
         img: 'https://via.placeholder.com/150',
@@ -58,7 +58,7 @@ export const data = [
         quote: 'Quote for Car 1',
     },
     {
-        id: 2,
+        id: 8,
         name: 'Car Name 2',
         title: 'Car Title 2',
         img: 'https://via.placeholder.com/250',
@@ -66,7 +66,7 @@ export const data = [
         quote: 'Quote for Car 2',
     },
     {
-        id: 3,
+        id: 9,
         name: 'Car Name 3',
         title: 'Car Title 3',
         img: 'https://via.placeholder.com/350',
