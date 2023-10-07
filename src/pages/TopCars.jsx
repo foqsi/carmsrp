@@ -11,7 +11,7 @@ const TopCars = () => {
 
                     {/* Image */}
                     <div className="w-1/4 flex-shrink-0 mr-4">
-                        <img src={car.img} alt={car.name} className="w-full object-cover rounded-lg max-h-48" /> {/* Adjusted maximum height */}
+                        <img src={car.img} alt={car.name} className="w-full object-cover rounded-lg max-h-48" />
                     </div>
 
                     {/* Description */}
