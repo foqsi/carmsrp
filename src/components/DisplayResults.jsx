@@ -1,12 +1,18 @@
+
 import React from 'react';
 
-const DisplayResults = ({ selectedTrimDetail,
+const DisplayResults = ({
+    selectedTrimDetail,
     otherVehicleDetails,
-    make_Model_Trim_Body,
-    make_Model_Trim_Engine,
-    make_Model_Trim_Mileage,
-    make_Model_Trim_Exterior_Colors,
-    make_Model_Trim_Interior_Colors }) => {
+    makeModelTrimBody,
+    makeModelTrimEngine,
+    makeModelTrimMileage,
+    makeModelTrimInteriorColors,
+    makeModelTrimExteriorColors,
+    localMakeBodyTrimData
+}) => {
+
+
     return (
         <div className='md:p-2'>
             <h2 className='font-bold text-sm md:text-lg my-2'>{selectedTrimDetail}</h2>
@@ -66,40 +72,40 @@ const DisplayResults = ({ selectedTrimDetail,
 
                     {/* make model trim body */}
                     <h1 className='font-bold'>Details</h1>
-                    <p>{make_Model_Trim_Body?.type !== null ? make_Model_Trim_Body?.type : 'null'}</p>
-                    <p>{make_Model_Trim_Body?.doors !== null ? make_Model_Trim_Body?.doors : 'null'}</p>
-                    <p>{make_Model_Trim_Body?.seats !== null ? make_Model_Trim_Body?.seats : 'null'}</p>
-                    <p>{make_Model_Trim_Body?.gross_weight !== null ? make_Model_Trim_Body?.gross_weight : 'null'}</p>
-                    <p>{make_Model_Trim_Body?.curb_weight !== null ? make_Model_Trim_Body?.curb_weight : 'null'}</p>
-                    <p>{make_Model_Trim_Body?.height !== null ? make_Model_Trim_Body?.height : 'null'}</p>
-                    <p>{make_Model_Trim_Body?.length !== null ? make_Model_Trim_Body?.length : 'null'}</p>
-                    <p>{make_Model_Trim_Body?.width !== null ? make_Model_Trim_Body?.width : 'null'}</p>
-                    <p>{make_Model_Trim_Body?.wheel_base !== null ? make_Model_Trim_Body?.wheel_base : 'null'}</p>
-                    <p>{make_Model_Trim_Body?.ground_clearance !== null ? make_Model_Trim_Body?.ground_clearance : 'null'}</p>
-                    <p>{make_Model_Trim_Body?.max_cargo_capacity !== null ? make_Model_Trim_Body?.max_cargo_capacity : 'null'}</p>
-                    <p>{make_Model_Trim_Body?.max_towing_capacity !== null ? make_Model_Trim_Body?.max_towing_capacity : 'null'}</p>
-                    <p>{make_Model_Trim_Body?.max_payload !== null ? make_Model_Trim_Body?.max_payload : 'null'}</p>
+                    <p>{makeModelTrimBody?.type !== null ? makeModelTrimBody?.type : 'null'}</p>
+                    <p>{makeModelTrimBody?.doors !== null ? makeModelTrimBody?.doors : 'null'}</p>
+                    <p>{makeModelTrimBody?.seats !== null ? makeModelTrimBody?.seats : 'null'}</p>
+                    <p>{makeModelTrimBody?.gross_weight !== null ? makeModelTrimBody?.gross_weight : 'null'}</p>
+                    <p>{makeModelTrimBody?.curb_weight !== null ? makeModelTrimBody?.curb_weight : 'null'}</p>
+                    <p>{makeModelTrimBody?.height !== null ? makeModelTrimBody?.height : 'null'}</p>
+                    <p>{makeModelTrimBody?.length !== null ? makeModelTrimBody?.length : 'null'}</p>
+                    <p>{makeModelTrimBody?.width !== null ? makeModelTrimBody?.width : 'null'}</p>
+                    <p>{makeModelTrimBody?.wheel_base !== null ? makeModelTrimBody?.wheel_base : 'null'}</p>
+                    <p>{makeModelTrimBody?.ground_clearance !== null ? makeModelTrimBody?.ground_clearance : 'null'}</p>
+                    <p>{makeModelTrimBody?.max_cargo_capacity !== null ? makeModelTrimBody?.max_cargo_capacity : 'null'}</p>
+                    <p>{makeModelTrimBody?.max_towing_capacity !== null ? makeModelTrimBody?.max_towing_capacity : 'null'}</p>
+                    <p>{makeModelTrimBody?.max_payload !== null ? makeModelTrimBody?.max_payload : 'null'}</p>
 
                     {/* make model trim engine */}
                     <h1 className='font-bold'>Engine</h1>
-                    <p>{make_Model_Trim_Engine?.size !== null ? make_Model_Trim_Engine?.size : 'null'}</p>
-                    <p>{make_Model_Trim_Engine?.cylinders !== null ? make_Model_Trim_Engine?.cylinders : 'null'}</p>
-                    <p>{make_Model_Trim_Engine?.valves !== null ? make_Model_Trim_Engine?.valves : 'null'}</p>
-                    <p>{make_Model_Trim_Engine?.drive_type !== null ? make_Model_Trim_Engine?.drive_type : 'null'}</p>
-                    <p>{make_Model_Trim_Engine?.engine_type !== null ? make_Model_Trim_Engine?.engine_type : 'null'}</p>
-                    <p>{make_Model_Trim_Engine?.fuel_type !== null ? make_Model_Trim_Engine?.fuel_type : 'null'}</p>
-                    <p>{make_Model_Trim_Engine?.horsepower_hp !== null ? make_Model_Trim_Engine?.horsepower_hp : 'null'}</p>
-                    <p>{make_Model_Trim_Engine?.horsepower_rpm !== null ? make_Model_Trim_Engine?.horsepower_rpm : 'null'}</p>
-                    <p>{make_Model_Trim_Engine?.torque_ft_lbs !== null ? make_Model_Trim_Engine?.torque_ft_lbs : 'null'}</p>
-                    <p>{make_Model_Trim_Engine?.torque_rpm !== null ? make_Model_Trim_Engine?.torque_rpm : 'null'}</p>
+                    <p>{makeModelTrimEngine?.size !== null ? makeModelTrimEngine?.size : 'null'}</p>
+                    <p>{makeModelTrimEngine?.cylinders !== null ? makeModelTrimEngine?.cylinders : 'null'}</p>
+                    <p>{makeModelTrimEngine?.valves !== null ? makeModelTrimEngine?.valves : 'null'}</p>
+                    <p>{makeModelTrimEngine?.drive_type !== null ? makeModelTrimEngine?.drive_type : 'null'}</p>
+                    <p>{makeModelTrimEngine?.engine_type !== null ? makeModelTrimEngine?.engine_type : 'null'}</p>
+                    <p>{makeModelTrimEngine?.fuel_type !== null ? makeModelTrimEngine?.fuel_type : 'null'}</p>
+                    <p>{makeModelTrimEngine?.horsepower_hp !== null ? makeModelTrimEngine?.horsepower_hp : 'null'}</p>
+                    <p>{makeModelTrimEngine?.horsepower_rpm !== null ? makeModelTrimEngine?.horsepower_rpm : 'null'}</p>
+                    <p>{makeModelTrimEngine?.torque_ft_lbs !== null ? makeModelTrimEngine?.torque_ft_lbs : 'null'}</p>
+                    <p>{makeModelTrimEngine?.torque_rpm !== null ? makeModelTrimEngine?.torque_rpm : 'null'}</p>
 
                     {/* make model trim mileage */}
                     <h1 className='font-bold'>Mileage</h1>
-                    <p>{make_Model_Trim_Mileage?.combined_mpg !== null ? make_Model_Trim_Mileage?.combined_mpg : 'null'}</p>
-                    <p>{make_Model_Trim_Mileage?.epa_city_mpg !== null ? make_Model_Trim_Mileage?.epa_city_mpg : 'null'}</p>
-                    <p>{make_Model_Trim_Mileage?.epa_highway_mpg !== null ? make_Model_Trim_Mileage?.epa_highway_mpg : 'null'}</p>
-                    <p>{make_Model_Trim_Mileage?.fuel_tank_capacity !== null ? make_Model_Trim_Mileage?.fuel_tank_capacity : 'null'}</p>
-                    <p>{make_Model_Trim_Mileage?.range_city !== null ? make_Model_Trim_Mileage?.range_city : 'null'}</p>
+                    <p>{makeModelTrimMileage?.combined_mpg !== null ? makeModelTrimMileage?.combined_mpg : 'null'}</p>
+                    <p>{makeModelTrimMileage?.epa_city_mpg !== null ? makeModelTrimMileage?.epa_city_mpg : 'null'}</p>
+                    <p>{makeModelTrimMileage?.epa_highway_mpg !== null ? makeModelTrimMileage?.epa_highway_mpg : 'null'}</p>
+                    <p>{makeModelTrimMileage?.fuel_tank_capacity !== null ? makeModelTrimMileage?.fuel_tank_capacity : 'null'}</p>
+                    <p>{makeModelTrimMileage?.range_city !== null ? makeModelTrimMileage?.range_city : 'null'}</p>
 
                     {/* make model trim exterior colors */}
 
