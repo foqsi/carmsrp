@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Breadcrumb from './Breadcrumb.jsx';
 import DisplayResults from './DisplayResults.jsx';
 import * as ApiService from '../services/ApiService.js';
-import useVehicleDetails from '../utils/vehicleDetails.js';
+// import useVehicleDetails from '../utils/vehicleDetails.js';
 import '../index.js';
 
 
@@ -28,22 +28,15 @@ const OptionsList = () => {
     const [years, setYears] = useState([]);
     const [trims, setTrims] = useState([]);
     const [trimDetails, setTrimDetails] = useState([]);
+    const [selectedId, setSelectedId] = useState([]);
     const [selectedIds, setSelectedIds] = useState([]);
     const [trimDetailToIdMap, setTrimDetailToIdMap] = useState({});
-    const {
-        makeModelTrimBody,
-        setMakeModelTrimBody,
-        makeModelTrimEngine,
-        setMakeModelTrimEngine,
-        makeModelTrimExteriorColors,
-        setMakeModelTrimExteriorColors,
-        makeModelTrimInteriorColors,
-        setMakeModelTrimInteriorColors,
-        makeModelTrimMileage,
-        setMakeModelTrimMileage,
-        otherVehicleDetails,
-        setOtherVehicleDetails
-    } = useVehicleDetails;
+    const [makeModelTrimBody, setMakeModelTrimBody] = useState();
+    const [makeModelTrimEngine, setMakeModelTrimEngine] = useState();
+    const [makeModelTrimMileage, setMakeModelTrimMileage] = useState();
+    const [makeModelTrimExteriorColors, setMakeModelTrimExteriorColors] = useState();
+    const [makeModelTrimInteriorColors, setMakeModelTrimInteriorColors] = useState();
+    const [otherVehicleDetails, setOtherVehicleDetails] = useState({});
 
     // useEffects to asynchronously fetch data when a vehicle attribute is selected
 
@@ -90,6 +83,7 @@ const OptionsList = () => {
                     const uniqueYearsArray = Array.from(uniqueYears);
 
                     setYears(uniqueYearsArray);
+
                 } catch (error) {
                     console.error("Error fetching years: ", error);
                 }
@@ -124,20 +118,11 @@ const OptionsList = () => {
         const loadTrimDetails = async () => {
             if (selectedTrim) {
                 try {
-                    const data = await ApiService.fetchTrimDetails(selectedMake, selectedModel, selectedYear, selectedTrim);
-
-                    const uniqueTrimDetail = new Set();
-                    const uniqueIds = new Set();
-                    const newTrimDetailToIdMap = {};
-
-                    data.data.forEach(item => {
-                        uniqueTrimDetail.add(item.description);
-                        uniqueIds.add(item.id);
-                        newTrimDetailToIdMap[item.description] = item.id;
-                    });
-
-                    const uniqueTrimDetailArray = Array.from(uniqueTrimDetail);
-                    const uniqueIdsArray = Array.from(uniqueIds);
+                    const {
+                        trimDetails: uniqueTrimDetailArray,
+                        selectedIds: uniqueIdsArray,
+                        trimDetailToIdMap: newTrimDetailToIdMap
+                    } = await ApiService.fetchTrimDetails(selectedMake, selectedModel, selectedYear, selectedTrim);
 
                     setTrimDetails(uniqueTrimDetailArray);
                     setSelectedIds(uniqueIdsArray);
@@ -153,40 +138,35 @@ const OptionsList = () => {
     }, [selectedTrim, selectedMake, selectedModel, selectedYear]);
 
     useEffect(() => {
-        // Fetch vehicle information based on the selected trim detail
-
         if (!selectedIds) return;
-
         const fetchData = async () => {
+
             try {
-                const vehicleData = await ApiService.fetchVehicleInformation(selectedIds);
-                setOtherVehicleDetails({
-                    msrp: vehicleData.msrp,
-                    name: vehicleData.name,
-                    invoice: vehicleData.invoice
-                });
-                if (vehicleData.makeModelTrimBody) {
-                    setMakeModelTrimBody(vehicleData.makeModelTrimBody);
+                const vehicleData = await ApiService.fetchVehicleInformation(selectedId);
+                if (vehicleData) {
+                    setOtherVehicleDetails(vehicleData);
                 }
-                if (vehicleData.makeModelTrimEngine) {
-                    setMakeModelTrimEngine(vehicleData.makeModelTrimEngine);
+                if (vehicleData.make_model_trim_body) {
+                    setMakeModelTrimBody(vehicleData.make_model_trim_body);
                 }
-                if (vehicleData.makeModelTrimMileage) {
-                    setMakeModelTrimMileage(vehicleData.makeModelTrimMileage);
+                if (vehicleData.make_model_trim_engine) {
+                    setMakeModelTrimEngine(vehicleData.make_model_trim_engine);
                 }
+                if (vehicleData.make_model_trim_mileage) {
+                    setMakeModelTrimMileage(vehicleData.make_model_trim_mileage);
+                }
+                // const exteriorColorsData = await ApiService.fetchExteriorColors(selectedId);
+                // setMakeModelTrimExteriorColors(exteriorColorsData);
 
-                const exteriorColorsData = await ApiService.fetchExteriorColors(selectedIds);
-                setMakeModelTrimExteriorColors(exteriorColorsData);
-
-                const interiorColorsData = await ApiService.fetchInteriorColors(selectedIds);
-                setMakeModelTrimInteriorColors(interiorColorsData);
+                // const interiorColorsData = await ApiService.fetchInteriorColors(selectedId);
+                // setMakeModelTrimInteriorColors(interiorColorsData);
             } catch (error) {
                 console.error("Error fetching vehicle information: ", error);
             }
         };
 
         fetchData();
-    }, [selectedIds]);
+    }, [selectedId]);
 
     // Boolean to check if all vehicle attributes are selected
     const allSelected = selectedMake && selectedModel && selectedYear && selectedTrim && selectedTrimDetail;
@@ -215,25 +195,22 @@ const OptionsList = () => {
                         <>
                             {allSelected ? (
                                 <DisplayResults
-                                    selectedMake={selectedMake}
-                                    selectedModel={selectedModel}
-                                    selectedYear={selectedYear}
-                                    selectedTrim={selectedTrim}
                                     selectedTrimDetail={selectedTrimDetail}
                                     otherVehicleDetails={otherVehicleDetails}
-                                    make_Model_Trim_Body={makeModelTrimBody}
-                                    make_Model_Trim_Engine={makeModelTrimEngine}
-                                    make_Model_Trim_Mileage={makeModelTrimMileage}
-                                    make_Model_Trim_Exterior_Colors={makeModelTrimExteriorColors}
-                                    make_Model_Trim_Interior_Colors={makeModelTrimInteriorColors}
+                                    makeModelTrimBody={makeModelTrimBody}
+                                    makeModelTrimEngine={makeModelTrimEngine}
+                                    makeModelTrimMileage={makeModelTrimMileage}
+                                    makeModelTrimExteriorColors={makeModelTrimExteriorColors}
+                                    makeModelTrimInteriorColors={makeModelTrimInteriorColors}
                                 />
+
 
                             ) : (
                                 selectedTrim ? (
                                     trimDetails.map((trimDetail, index) => (
                                         <div key={index} onClick={() => {
                                             setSelectedTrimDetail(trimDetail);
-                                            setSelectedIds(trimDetailToIdMap[trimDetail]);
+                                            setSelectedId(trimDetailToIdMap[trimDetail]);
                                             setCurrentWindow('Detail');
                                         }} className='default-hover border border-gray'>
                                             {trimDetail}

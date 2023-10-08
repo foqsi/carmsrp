@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
 const useVehicleDetails = () => {
-    const [makeModelTrimExteriorColors, setMakeModelTrimExteriorColors] = useState({});
-    const [makeModelTrimInteriorColors, setMakeModelTrimInteriorColors] = useState({});
+    const [make_model_trim_exterior_colors, setmake_model_trim_exterior_colors] = useState({});
+    const [make_model_trim_interior_colors, setmake_model_trim_interior_colors] = useState({});
 
-    const [makeModelTrimBody, setMakeModelTrimBody] = useState({
+    const [make_model_trim_body, setmake_model_trim_body] = useState({
         cargo_capacity: null,
         curb_weight: null,
         doors: null,
@@ -25,7 +25,7 @@ const useVehicleDetails = () => {
         width: null
     });
 
-    const [makeModelTrimEngine, setMakeModelTrimEngine] = useState({
+    const [make_model_trim_engine, setmake_model_trim_engine] = useState({
         cam_type: null,
         cylinders: null,
         drive_type: null,
@@ -43,7 +43,7 @@ const useVehicleDetails = () => {
         valves: null
     });
 
-    const [makeModelTrimMileage, setMakeModelTrimMileage] = useState({
+    const [make_model_trim_mileage, setmake_model_trim_mileage] = useState({
         battery_capacity_electric: null,
         combined_mpg: null,
         epa_city_mpg: null,
@@ -68,16 +68,16 @@ const useVehicleDetails = () => {
     });
 
     return {
-        makeModelTrimBody,
-        setMakeModelTrimBody,
-        makeModelTrimEngine,
-        setMakeModelTrimEngine,
-        makeModelTrimExteriorColors,
-        setMakeModelTrimExteriorColors,
-        makeModelTrimInteriorColors,
-        setMakeModelTrimInteriorColors,
-        makeModelTrimMileage,
-        setMakeModelTrimMileage,
+        make_model_trim_body,
+        setmake_model_trim_body,
+        make_model_trim_engine,
+        setmake_model_trim_engine,
+        make_model_trim_interior_colors,
+        setmake_model_trim_interior_colors,
+        make_model_trim_exterior_colors,
+        setmake_model_trim_exterior_colors,
+        make_model_trim_mileage,
+        setmake_model_trim_mileage,
         otherVehicleDetails,
         setOtherVehicleDetails
     }
