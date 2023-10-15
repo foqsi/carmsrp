@@ -51,7 +51,7 @@ export default function SearchBar() {
             <div className="hidden md:flex w-full">
                 {/* The input field for desktop view */}
                 <input
-                    className="w-full pr-2 py-2 rounded-md border border-gray-300 pl-10"
+                    className="w-full pr-2 py-2 rounded-md border border-gray-300 pl-2"
                     type="text"
                     placeholder="Search All Cars"
                 />

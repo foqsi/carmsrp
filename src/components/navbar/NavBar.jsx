@@ -6,12 +6,13 @@ import MobileMenuButton from './MobileMenuButton.jsx';
 import MainNavigationDropdown from './MainMenuDropdown.jsx';
 import { NavigationLinks, classNames } from './NavigationLinks.jsx';
 import SearchBar from './SearchBar.jsx';
+import UseAppButton from './UseAppButton.jsx';
 
+// Navigation links for the main menu
 const navigation = [
     { name: 'Home', href: '/', current: false },
     { name: 'Top 25 Cars', href: '/TopCars', current: false },
     { name: 'Car of the Day', href: '/CarOfTheDay', current: false },
-    { name: 'Random Car', href: '/RandomCar', current: false },
 ]
 
 /**
@@ -71,15 +72,14 @@ export default function NavBar() {
                                                 />
                                             </Menu.Button>
                                         ) : (
-                                            <a href="/LogIn">
+                                            <a href="/SignIn">
                                                 <button className='bg-gray-700 hover:bg-gray-500 text-white font-bold py-1.5 px-1.5 rounded'> Sign In </button>
                                             </a>
                                         )}
 
-                                        {/* Use App button */}
-                                        <a href='#' className='ml-2'>
-                                            <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-1.5 px-1.5 rounded'> Use App </button>
-                                        </a>
+                                        {/* Place holder for if/when app built */}
+                                        {/* <UseAppButton /> */}
+
                                     </div>
 
                                     <Transition
