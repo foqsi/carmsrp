@@ -1,11 +1,11 @@
-import logo from "../assets/logo-black.png";
+import logoButton from "../assets/logo-black-custom.png";
 
 export const signInOptions = [
 
 
     {
         name: "All Car DB",
-        icon: logo,
+        icon: logoButton,
         className: "w-6 h-auto mr-2",
     },
     {
