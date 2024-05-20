@@ -23,7 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 src/assets/*
-src/context/*
 src/utils/apikey.js
 src/services/php/*
 
@@ -32,10 +31,3 @@ src/api/php/dbconfig.php
 src/api/php/cors.php
 src/api/apikey.js
 src/api/ApiService.js
-
-package-lock.json
-package.json
-tailwind.config.js
-
-images/*
-public/*
