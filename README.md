@@ -1,9 +1,9 @@
 # https://allcardb.com
 
-// 10/05/23
+### // 10/05/23
 This project is a front end expirementation project that I started over a year ago. I started with just basic html and css. Then, I learn js and change the code to js. I am now self-learning react and changing it to a react project. The project will utilize a database I have found or created to display details of a vehicle the user navigates to.
 
-// 05/19/24
+### // 05/19/24
 I've just added the ability for users to create an account and log in. However, that is it for now.
 
 
