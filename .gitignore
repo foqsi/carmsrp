@@ -22,8 +22,20 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-
+src/assets/*
+src/context/*
 src/utils/apikey.js
-.vscode/settings.json
+src/services/php/*
 
-Doorswing.jsx
+
+src/api/php/dbconfig.php
+src/api/php/cors.php
+src/api/apikey.js
+src/api/ApiService.js
+
+package-lock.json
+package.json
+tailwind.config.js
+
+images/*
+public/*

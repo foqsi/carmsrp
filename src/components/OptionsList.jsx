@@ -1,21 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Breadcrumb from './Breadcrumb.jsx';
 import DisplayResults from './DisplayResults.jsx';
-import * as ApiService from '../services/ApiService.js';
+import * as ApiService from '../api/ApiService.js';
 // import useVehicleDetails from '../utils/vehicleDetails.js';
 import '../index.js';
 
-
-/**
- * OptionsList Component.
- *
- * Displays a dynamic options list for selecting vehicle attributes in sequence: Make, Model, Year, Trim, and Trim Detail.
- * After all selections are made, it displays detailed vehicle information.
- */
-
 const OptionsList = () => {
-
-    // States to track selected vehicle attributes and available options
 
     const [currentWindow, setCurrentWindow] = useState('Make');
     const [selectedMake, setSelectedMake] = useState(null);
@@ -38,11 +28,7 @@ const OptionsList = () => {
     const [makeModelTrimInteriorColors, setMakeModelTrimInteriorColors] = useState();
     const [otherVehicleDetails, setOtherVehicleDetails] = useState({});
 
-    // useEffects to asynchronously fetch data when a vehicle attribute is selected
-
     useEffect(() => {
-        // Fetch available makes on component mount
-
         const loadMakes = async () => {
             try {
                 const data = await ApiService.fetchMakes();
@@ -56,8 +42,6 @@ const OptionsList = () => {
     }, []);
 
     useEffect(() => {
-        // Fetch models based on the selected make
-
         const loadModels = async () => {
             if (selectedMake) {
                 try {
@@ -73,8 +57,6 @@ const OptionsList = () => {
     }, [selectedMake]);
 
     useEffect(() => {
-        // Fetch years based on the selected model
-
         const loadYears = async () => {
             if (selectedModel) {
                 try {
@@ -94,8 +76,6 @@ const OptionsList = () => {
     }, [selectedModel]);
 
     useEffect(() => {
-        // Fetch trims based on the selected year
-
         const loadTrims = async () => {
             if (selectedYear) {
                 try {
@@ -113,8 +93,6 @@ const OptionsList = () => {
     }, [selectedYear, selectedModel, selectedMake]);
 
     useEffect(() => {
-        // Fetch trim details based on the selected trim
-
         const loadTrimDetails = async () => {
             if (selectedTrim) {
                 try {
@@ -168,7 +146,6 @@ const OptionsList = () => {
         fetchData();
     }, [selectedId]);
 
-    // Boolean to check if all vehicle attributes are selected
     const allSelected = selectedMake && selectedModel && selectedYear && selectedTrim && selectedTrimDetail;
 
     return (
@@ -191,7 +168,6 @@ const OptionsList = () => {
 
                 <div className='overflow-hidden flex-1 flex items-center justify-center'>
                     <div className="overflow-hidden overflow-y-auto hide-scrollbar bg-white text-black p-2 md:p-6 m-1 md:m-6 rounded-lg shadow-lg w-full md:w-[600px] h-[60vh] md:h-[700px] text-center opacity-95 transition-all duration-700 ease-in-out">
-                        {/* Content */}
                         <>
                             {allSelected ? (
                                 <DisplayResults
