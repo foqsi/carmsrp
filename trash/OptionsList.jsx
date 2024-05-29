@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Breadcrumb from './Breadcrumb.jsx';
 import DisplayResults from './DisplayResults.jsx';
-import * as ApiService from '../api/ApiService.js';
+import * as ApiService from '../src/api/service/ApiService.js';
 // import useVehicleDetails from '../utils/vehicleDetails.js';
-import '../index.js';
+import '../src/index.js';
 
 const OptionsList = () => {
 

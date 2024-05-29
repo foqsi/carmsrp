@@ -1,4 +1,4 @@
-import logo from '../../assets/logo-white-custom.png';
+import logo from '../../assets/logo/logo-white-custom.png';
 
 export default function Logo() {
     return (

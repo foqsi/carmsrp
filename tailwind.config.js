@@ -3,8 +3,8 @@ module.exports = {
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
     extend: {
-      backgroundImage: (theme) => ({
-        'background-image': "url('./assets/logobackground.jpg')",
+      backgroundImage: () => ({
+        'background-image': "url('./assets/background.jpg')",
       })
     },
   },

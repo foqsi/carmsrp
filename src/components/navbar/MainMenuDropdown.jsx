@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { Bars3Icon } from '@heroicons/react/24/outline';
-import { classNames } from './NavigationLinks.jsx';
+import { classNames } from './NavigationLinks';
 
 export default function MainNavigationDropdown({ navigation }) {
     return (

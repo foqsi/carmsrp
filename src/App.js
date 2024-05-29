@@ -1,29 +1,24 @@
-import Main from './pages/Main.jsx';
+import { Routes, Route } from 'react-router-dom';
+import Main from './components/pages/Main.jsx';
+import Login from './components/pages/Login.jsx';
 import Navbar from './components/navbar/NavBar.jsx';
-import CarOfTheDay from './pages/CarOfTheDay.jsx';
-import RandomCar from './pages/RandomCar.jsx';
-import TopCars from './pages/TopCars.jsx';
-import Footer from './components/Footer.jsx';
-import SignIn from './pages/accounts/SignIn.jsx';
-import { AuthProvider } from './context/AuthContext.jsx';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SignIn from './components/accounts/SignIn.jsx';
+import Profile from './components/accounts/Profile.jsx';
+
+
 
 function App() {
   return (
-    <AuthProvider>
-      <div className="App">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/CarOfTheDay" element={<CarOfTheDay />} />
-          <Route path="/RandomCar" element={<RandomCar />} />
-          <Route path="/TopCars" element={<TopCars />} />
-          <Route path="/SignIn" element={<SignIn />} />
-        </Routes>
-        <Footer />
-      </div>
-    </AuthProvider>
+    <div className="App">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Profile" element={<Profile />} />
+      </Routes>
+    </div>
   );
 }
+
 
 export default App;

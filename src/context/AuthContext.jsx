@@ -8,19 +8,21 @@ export function useAuth() {
 
 export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(() => {
-        // Initialize state from localStorage to keep user logged in between sessions
-        return localStorage.getItem('isAuthenticated') === 'true';
+        const cookieValue = document.cookie
+            .split('; ')
+            .find(row => row.startsWith('isAuthenticated='))
+            ?.split('=')[1];
+        return cookieValue === 'true';
     });
 
-    // Whenever isAuthenticated changes, update localStorage
     useEffect(() => {
-        localStorage.setItem('isAuthenticated', isAuthenticated);
+        document.cookie = `isAuthenticated=${isAuthenticated}; path=/`;
     }, [isAuthenticated]);
 
     const login = () => setIsAuthenticated(true);
     const logout = () => {
         setIsAuthenticated(false);
-        localStorage.removeItem('isAuthenticated'); // Clear auth state on logout
+        document.cookie = 'isAuthenticated=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     };
 
     return (

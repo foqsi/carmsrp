@@ -4,27 +4,22 @@ session_start();
 include ('cors.php');
 include ('dbconfig.php');
 
-$email = $_POST['email'];
-$password = $_POST['password'];
-
-// TODO: Add email validation
-// TODO: PASSWORD STRENGTH VALIDATION
+$email = isset($_POST['email']) ? $_POST['email'] : null;
+$password = isset($_POST['password']) ? $_POST['password'] : null;
+$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $dbpassword);
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpassword);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
     $stmt = $conn->prepare("INSERT INTO users (email, userpw) VALUES (?, ?)");
-    $stmt->execute([$email, $hashedPassword]);
+    $success = $stmt->execute([$email, $hashedPassword]);
 
-    if ($stmt->rowCount() > 0) {
-        $_SESSION['user_email'] = $email;
-        echo json_encode(["message" => "User registered and logged in successfully", "success" => true]);
+    if ($success && $stmt->rowCount() > 0) {
+        echo json_encode(["message" => "User registered successfully", "success" => true]);
     } else {
-        echo json_encode(["message" => "Registration failed", "success" => false]);
+        echo json_encode(["message" => "Registration failed, no rows affected", "success" => false]);
     }
 } catch (PDOException $e) {
-    echo json_encode(["message" => "Registration failed, please contact support@allcardb.com: " . $e->getMessage(), "success" => false]);
+    echo json_encode(["message" => "Registration failed: " . $e->getMessage(), "success" => false]);
 }

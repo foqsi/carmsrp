@@ -62,7 +62,6 @@ const DisplayResults = ({
                         <p>Range City:</p>
                         <p></p>
 
-
                     </ul>
                 </div>
                 <div className='border border-black'>
@@ -108,10 +107,6 @@ const DisplayResults = ({
                     <p>{makeModelTrimMileage?.range_city !== null ? makeModelTrimMileage?.range_city : 'null'}</p>
 
                     {/* make model trim exterior colors */}
-
-
-
-
 
                 </div>
             </div>
