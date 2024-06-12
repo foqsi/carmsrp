@@ -8,25 +8,23 @@ export function useAuth() {
 
 export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(() => {
-        const cookieValue = document.cookie
-            .split('; ')
-            .find(row => row.startsWith('isAuthenticated='))
-            ?.split('=')[1];
-        return cookieValue === 'true';
+        return !!localStorage.getItem('token');
     });
 
-    useEffect(() => {
-        document.cookie = `isAuthenticated=${isAuthenticated}; path=/`;
-    }, [isAuthenticated]);
+    const getToken = () => localStorage.getItem('token');
 
-    const login = () => setIsAuthenticated(true);
+    const login = (token) => {
+        localStorage.setItem('token', token);
+        setIsAuthenticated(true);
+    };
+
     const logout = () => {
+        localStorage.removeItem('token');
         setIsAuthenticated(false);
-        document.cookie = 'isAuthenticated=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     };
 
     return (
-        <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+        <AuthContext.Provider value={{ isAuthenticated, login, logout, getToken }}>
             {children}
         </AuthContext.Provider>
     );

@@ -21,12 +21,9 @@ export default function SignIn() {
             return;
         }
 
-        console.log('Starting login process');
-        console.log('Email:', email);
-        console.log('Password:', password);
-
+        // https://allcardb.com/api/php/verifyUser.php
         try {
-            const response = await fetch('https://allcardb.com/api/php/verifyUser.php', {
+            const response = await fetch('http://localhost/login.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -34,16 +31,10 @@ export default function SignIn() {
                 body: JSON.stringify({ email, password }),
             });
 
-            console.log('Response status:', response.status);
-            console.log('Response headers:', response.headers);
-
             const contentType = response.headers.get('Content-Type');
-            console.log('Content-Type:', contentType);
 
             if (contentType && contentType.includes('application/json')) {
-                console.log("if content type");
                 const data = await response.json();
-                console.log(data);
 
                 if (response.ok && data.success) {
                     console.log('Login successful');
