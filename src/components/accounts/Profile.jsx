@@ -15,14 +15,16 @@ export default function Profile() {
             if (isAuthenticated) {
                 try {
                     const token = await getToken();
-                    const response = await fetch('http://localhost/profile.php', {
+                    const response = await fetch('http://localhost/test.php', {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
                             'Authorization': `Bearer ${token}`
-                        }
+                        },
+                        credentials: 'include'
                     });
                     if (!response.ok) {
+                        console.log("response not ok");
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
                     const data = await response.json();
@@ -54,12 +56,13 @@ export default function Profile() {
         e.preventDefault();
         try {
             const token = await getToken();
-            const response = await fetch('http://localhost/profile.php', {
+            const response = await fetch('http://localhost/test.php', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 },
+                credentials: 'include',
                 body: JSON.stringify(userInfo),
             });
             const data = await response.json();

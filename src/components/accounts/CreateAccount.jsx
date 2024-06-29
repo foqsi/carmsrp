@@ -52,8 +52,9 @@ export default function CreateAccount({ setCreateAccount }) {
                 body: new URLSearchParams(formData)
             });
 
-            if (!response.ok) {
-                throw new Error('Failed to register');
+            const data = await response.json();
+            if (!response.ok || !data.success) {
+                throw new Error(data.message || 'Failed to register');
             }
 
             login();

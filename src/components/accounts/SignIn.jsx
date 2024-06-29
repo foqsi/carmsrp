@@ -21,13 +21,13 @@ export default function SignIn() {
             return;
         }
 
-        // https://allcardb.com/api/php/verifyUser.php
         try {
-            const response = await fetch('http://localhost/login.php', {
+            const response = await fetch('http://localhost/test.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
+                credentials: 'include',
                 body: JSON.stringify({ email, password }),
             });
 
@@ -37,7 +37,7 @@ export default function SignIn() {
                 const data = await response.json();
 
                 if (response.ok && data.success) {
-                    console.log('Login successful');
+                    console.log(data.id);
                     login();
                     navigate('/');
                 } else {
