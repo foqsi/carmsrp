@@ -5,10 +5,44 @@ import SignInToViewThisPage from '../utility/SignInToViewThisPage';
 
 export default function Profile() {
     const { isAuthenticated, logout, getToken } = useAuth();
-    const [userInfo, setUserInfo] = useState({ email: '', fname: '', lname: '' });
+    const [userInfo, setUserInfo] = useState({
+        email: '',
+        fname: '',
+        lname: '',
+        gender_id: '',
+        dob: '',
+        country_id: '',
+        mobile_number: ''
+    });
+    const [genders, setGenders] = useState([]);
+    const [countries, setCountries] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const [editing, setEditing] = useState(false);
+
+    useEffect(() => {
+        const fetchReferenceData = async () => {
+            try {
+                const response = await fetch('http://localhost/cgid.php', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                const data = await response.json();
+                if (data.success) {
+                    setGenders(data.data.genders);
+                    setCountries(data.data.countries);
+                } else {
+                    setError(data.message || 'Failed to fetch reference data');
+                }
+            } catch (error) {
+                setError(error.message || 'Error fetching reference data');
+            }
+        };
+
+        fetchReferenceData();
+    }, []);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -24,11 +58,9 @@ export default function Profile() {
                         credentials: 'include'
                     });
                     if (!response.ok) {
-                        console.log("response not ok");
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
                     const data = await response.json();
-                    console.log(data);
                     if (data.success) {
                         setUserInfo(data.data);
                     } else {
@@ -122,6 +154,43 @@ export default function Profile() {
                             onChange={handleChange}
                             className="mb-4 w-72 h-12 p-2 border rounded-md"
                             placeholder="Last Name"
+                        />
+                        <select
+                            name="gender_id"
+                            value={userInfo.gender_id}
+                            onChange={handleChange}
+                            className="mb-4 w-72 h-12 p-2 border rounded-md"
+                        >
+                            <option value="">Select Gender</option>
+                            {genders.map((gender) => (
+                                <option key={gender.id} value={gender.id}>{gender.gender}</option>
+                            ))}
+                        </select>
+                        <input
+                            type="date"
+                            name="dob"
+                            value={userInfo.dob}
+                            onChange={handleChange}
+                            className="mb-4 w-72 h-12 p-2 border rounded-md"
+                        />
+                        <select
+                            name="country_id"
+                            value={userInfo.country_id}
+                            onChange={handleChange}
+                            className="mb-4 w-72 h-12 p-2 border rounded-md"
+                        >
+                            <option value="">Select Country</option>
+                            {countries.map((country) => (
+                                <option key={country.id} value={country.id}>{country.country}</option>
+                            ))}
+                        </select>
+                        <input
+                            type="text"
+                            name="mobile_number"
+                            value={userInfo.mobile_number}
+                            onChange={handleChange}
+                            className="mb-4 w-72 h-12 p-2 border rounded-md"
+                            placeholder="Mobile Number"
                         />
                         <button type="submit" className="w-72 h-12 mb-4 bg-zinc-600 hover:bg-gray-700 rounded-md text-white">Save</button>
                     </form>

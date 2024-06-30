@@ -44,7 +44,7 @@ export default function CreateAccount({ setCreateAccount }) {
         }
 
         try {
-            const response = await fetch('https://allcardb.com/api/php/register.php', {
+            const response = await fetch('http://localhost/register.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
