@@ -127,7 +127,7 @@ export default function Profile() {
                     </form>
                 ) : (
                     <div>
-                        <p className="text-xl">Welcome back, {userInfo.fname} {userInfo.lname}!</p>
+                        <p className="text-xl">Welcome back, {userInfo.fname}!</p>
                         <p className="text-xl">{userInfo.email}</p>
                         <button onClick={() => setEditing(true)} className="w-72 h-12 mb-4 bg-zinc-600 hover:bg-gray-700 rounded-md text-white">Edit Profile</button>
                         <button onClick={logout} className="w-72 h-12 mb-4 bg-zinc-600 hover:bg-gray-700 rounded-md text-white">Logout</button>
