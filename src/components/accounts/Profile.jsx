@@ -138,6 +138,7 @@ export default function Profile() {
                             onChange={handleChange}
                             className="mb-4 w-72 h-12 p-2 border rounded-md"
                             placeholder="Email"
+                            disabled={true}
                         />
                         <input
                             type="text"
