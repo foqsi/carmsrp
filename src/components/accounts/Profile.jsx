@@ -23,7 +23,7 @@ export default function Profile() {
     useEffect(() => {
         const fetchReferenceData = async () => {
             try {
-                const response = await fetch('http://localhost/cgid.php', {
+                const response = await fetch('https://allcardb.com/api/php/cgid.php', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ export default function Profile() {
             if (isAuthenticated) {
                 try {
                     const token = await getToken();
-                    const response = await fetch('http://localhost/test.php', {
+                    const response = await fetch('https://allcardb.com/api/php/test.php', {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -88,7 +88,7 @@ export default function Profile() {
         e.preventDefault();
         try {
             const token = await getToken();
-            const response = await fetch('http://localhost/test.php', {
+            const response = await fetch('https://allcardb.com/api/php/test.php', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

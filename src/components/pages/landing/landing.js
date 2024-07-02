@@ -3,9 +3,9 @@ import React from 'react';
 const LandingPage = () => {
     return (
         <div className="min-h-screen flex items-center justify-center text-black px-4">
-            <div className="bg-white flex flex-col md:flex-row items-center md:items-start max-w-6xl w-full">
+            <div className="bg-white flex flex-col md:flex-row items-center md:items-start max-w-6xl w-full rounded-xl">
                 <div className="text-left p-8 md:w-1/2">
-                    <h1 className="text-5xl md:text-6xl font-bold mb-4 text-center">All Car Database.</h1>
+                    <h1 className="text-5xl md:text-5xl font-bold mb-4 text-center">ALL CAR DATABASE</h1>
                     <div className="relative mb-8">
                         <input
                             type="text"
@@ -28,14 +28,14 @@ const LandingPage = () => {
                         </svg>
                     </div>
                     <div className="flex space-x-4">
-                        <button className="bg-blue-500 text-white px-6 py-3 rounded-lg">Search</button>
+                        <button className="bg-blue-500 text-white px-6 py-3 rounded-lg">Get Started</button>
                         <button className="bg-transparent border border-black text-black px-6 py-3 rounded-lg">Sign Up</button>
                     </div>
                 </div>
                 <div className="relative w-full md:w-1/2 mt-8 md:mt-0 flex items-center justify-center">
-                    <img src="/path/to/your/image.png" alt="Landing page graphic" className="w-full h-auto" />
+                    {/* <img src="/path/to/your/image.png" alt="" className="w-full h-auto" /> */}
                     <div className="absolute top-0 right-0 mt-4 mr-4">
-                        <h2 className="text-3xl font-bold">Find various information and statistics about vehicles.</h2>
+                        <h2 className="text-2xl font-bold">Find various information and statistics about vehicles.</h2>
                     </div>
                 </div>
             </div>
