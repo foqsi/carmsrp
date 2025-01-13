@@ -15,7 +15,7 @@ const ProfilePage = ({ user, onUpdateProfile }) => {
         onUpdateProfile(editedUser);
         setIsEditing(false);
     };
-
+// test 
     return (
         <div className="max-w-2xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
             <div className="flex justify-between items-center mb-6">

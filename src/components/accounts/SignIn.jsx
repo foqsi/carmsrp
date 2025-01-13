@@ -22,7 +22,8 @@ export default function SignIn() {
         }
 
         try {
-            const response = await fetch('https://allcardb.com/api/php/user.php', {
+            // https://allcardb.com/api/php/user.php
+            const response = await fetch('http://localhost/user.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
